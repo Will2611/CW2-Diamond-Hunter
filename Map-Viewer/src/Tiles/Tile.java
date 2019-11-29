@@ -16,7 +16,11 @@ public class Tile {
 		this.type = type;
 	}
 	
-	public BufferedImage getImage() { return image; }
-	public int getType() { return type; }
+	public BufferedImage getImage() { 
+		return image; 
+		}
+	public int getType() { 
+		return type;
+		}
 	
 }
