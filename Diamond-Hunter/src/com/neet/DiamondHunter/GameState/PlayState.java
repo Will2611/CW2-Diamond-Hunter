@@ -351,11 +351,11 @@ public class PlayState extends GameState {
 			gsm.setPaused(true);
 		}
 		if(blockInput) return;
-		if(Keys.isDown(Keys.LEFT)) { player.setLeft()};
-		if(Keys.isDown(Keys.RIGHT)) { player.setRight()};
-		if(Keys.isDown(Keys.UP)) {player.setUp()};
-		if(Keys.isDown(Keys.DOWN)) {player.setDown(});
-		if(Keys.isPressed(Keys.SPACE)) {player.setAction()};
+		if(Keys.isDown(Keys.LEFT)) { player.setLeft();}
+		if(Keys.isDown(Keys.RIGHT)) { player.setRight();}
+		if(Keys.isDown(Keys.UP)) {player.setUp();}
+		if(Keys.isDown(Keys.DOWN)) {player.setDown();}
+		if(Keys.isPressed(Keys.SPACE)) {player.setAction();}
 	}
 	
 	//===============================================
