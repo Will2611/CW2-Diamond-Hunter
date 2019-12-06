@@ -103,7 +103,6 @@ public class TileMap {
 		int r = rc / numTilesAcross;
 		int c = rc % numTilesAcross;
 		tileImage = SwingFXUtils.toFXImage(tiles[r][c].getImage(), null);
-		
 	}
 
 	/**
@@ -113,20 +112,15 @@ public class TileMap {
 	 * @param col
 	 */
 	public void generateOneTileByMap(GridPane grid, int row, int col) {
+
+		HBox tileField = new HBox();
+		tileField.setAlignment(Pos.CENTER);
+		grid.add(tileField, col, row);
+
 		ImageView tilePane = new ImageView();
-		grid.add(tilePane, col, row);
+		tileField.getChildren().add(tilePane);
 		generateImage(row, col);
 		tilePane.setImage(getTileImage());
-		if (row==17 && col==17) {
-			HBox playerField = new HBox();
-			playerField .setAlignment(Pos.CENTER);
-			grid.add(playerField , col, row);
-			
-			BufferedImage playerBuf = Content.PLAYER[0][1];
-			Image playerImage = SwingFXUtils.toFXImage(playerBuf,null);
-			playerField.getChildren().add(new ImageView(playerImage));
-		}
-		
 	}
 
 	public Image getTileImage() {

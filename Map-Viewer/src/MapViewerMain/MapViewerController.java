@@ -43,14 +43,14 @@ public class MapViewerController {
 	 * after the fxml file has been loaded.
 	 */
 	@FXML
-	/*public void initialize() {
+	public void initialize() {
 		modelHelper.showReminder(reminder, "Hello!!");
 		
 		createGridPane();
 		System.out.println("Loading...");
 		model.loadMap(grid, reminder);
 		System.out.println("loaded");
-	}*/
+	}
 
 	/**
 	 * create a 40*40 GridPane
