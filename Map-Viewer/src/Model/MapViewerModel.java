@@ -7,9 +7,8 @@ import Tiles.TileMap;
 
 /**
  * This class is a model of Map Viewer App
- * @author yehan
- *
  */
+
 public class MapViewerModel implements IMapViewer {
 	int NUM_COL = 40;
 	int NUM_ROW = 40;

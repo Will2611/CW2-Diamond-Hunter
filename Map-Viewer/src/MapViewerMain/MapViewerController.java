@@ -21,7 +21,9 @@ public class MapViewerController {
 	
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
+	
 	//make true map loaded once
+	
 	boolean hasLoaded = false;
 	@FXML
 	public GridPane grid;
@@ -32,6 +34,7 @@ public class MapViewerController {
 	 * The constructor. The constructor is called before the initialize()
 	 * method.
 	 */
+	
 	public MapViewerController() {
 
 	}
@@ -42,6 +45,7 @@ public class MapViewerController {
 	 * Initializes the controller class. This method is automatically called
 	 * after the fxml file has been loaded.
 	 */
+	
 	@FXML
 	public void initialize() {
 		modelHelper.showReminder(reminder, "Hello!!");
@@ -55,6 +59,7 @@ public class MapViewerController {
 	/**
 	 * create a 40*40 GridPane
 	 */
+	
 	public void createGridPane() {
 
 		for (int i = 0; i < NUM_COL; i++) {
@@ -74,6 +79,7 @@ public class MapViewerController {
 	/**
 	 * when click button load, load map to screen
 	*/
+
 	@FXML
 	public void onLoadMap() {
 		
