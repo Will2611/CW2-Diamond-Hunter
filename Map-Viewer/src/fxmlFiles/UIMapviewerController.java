@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
-public class MapviewerController implements UIControllerInterface {
+public class UIMapviewerController implements UIControllerInterface {
 	UIControllerFunctions holder = new UIControllerFunctions();
 	StatusGetters status = new StatusGetters();
 	int NUM_COL = 40;

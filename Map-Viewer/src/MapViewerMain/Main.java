@@ -29,7 +29,7 @@ public class Main extends Application {
 	public void starter() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/fxmlFiles/MapViewer.fxml"));
+			loader.setLocation(Main.class.getResource("/fxmlFiles/UIMapviewer.fxml"));
 			root = (BorderPane) loader.load();
 			Scene scene = new Scene(root);
 			
@@ -37,7 +37,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			
-			MapviewerController controller = loader.getController();		
+			UIMapviewerController controller = loader.getController();		
 			
 			primaryStage.show();
 			
