@@ -9,9 +9,10 @@ import fxmlFiles.UIControllerFunctions;
 public class StatusGetters {
 	
 	int[] CursorCords = new int[2];
-	int[] AxeCords = new int[2];
-	int[] BoatCords = new int[2];
-	String coordinates ="Co-ordinates- X: %d, Y: %d\n%s";
+	int[] AxeCords = {26, 37};
+	int[] BoatCords = {12, 4};
+	int [] PlayerCords = {17,17};
+	String coordinates ="Co-ordinates- X: %d, Y: %d\nStatus: %s";
 	String tileStatus = "Staus: %s";
 	
 	TileMap tileMap;
@@ -32,7 +33,6 @@ public class StatusGetters {
 		return CursorCords;
 	}
 	public void setCordsText(Label cords, int getX, int getY) {
-		System.out.println(getTileStatus());
 		cords.setText(String.format(coordinates, getX, getY,"Hello"));
 		
 	}
