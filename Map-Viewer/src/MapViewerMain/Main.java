@@ -37,7 +37,7 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			
-			UIMapviewerController controller = loader.getController();		
+			MapviewerController controller = loader.getController();		
 			
 			primaryStage.show();
 			
