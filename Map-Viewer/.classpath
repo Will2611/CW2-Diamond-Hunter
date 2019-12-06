@@ -16,6 +16,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="Resources"/>
+	<classpathentry including="Maps/|Maps/testmap.map|Sprites/|Sprites/diamond.gif|Sprites/items.gif|Sprites/playersprites.gif|Sprites/sparkle.gif|Tilesets/|Tilesets/testtileset.gif" kind="src" path="Resources"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

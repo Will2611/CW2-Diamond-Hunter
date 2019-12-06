@@ -4,6 +4,11 @@ import Tiles.TileMap;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+
+
 public class UIControllerFunctions {
 	TileMap tileMap = new TileMap(16);
 	int[][] map;
@@ -27,5 +32,17 @@ public class UIControllerFunctions {
 	}
 	public void setAxe(GridPane grid, Label reminder) {
 		System.out.println("axe");
+	}
+	
+	public void setBoat(GridPane grid, Label reminder) {
+		System.out.println("boat");
+	}
+	
+	public TileMap getTileMap() {
+		return tileMap;
+	}
+	
+	public int [][] getMap(){
+		return map;
 	}
 }

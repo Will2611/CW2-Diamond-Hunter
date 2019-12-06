@@ -1,6 +1,5 @@
 package fxmlFiles;
 
-import Tiles.Tile;
 import Tiles.TileMap;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -20,8 +19,8 @@ public class StatusGetters {
 	
 	public StatusGetters() {
 		UIControllerFunctions holder = new UIControllerFunctions();
-		//tileMap = holder.getTileMap();
-		//map = holder.getMap();
+		tileMap = holder.getTileMap();
+		map = holder.getMap();
 	}
 	
 
