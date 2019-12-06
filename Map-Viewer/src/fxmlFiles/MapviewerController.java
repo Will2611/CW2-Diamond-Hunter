@@ -8,14 +8,17 @@ import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
 public class MapviewerController implements UIControllerInterface {
+	
 	UIControllerFunctions holder = new UIControllerFunctions();
 	StatusGetters status = new StatusGetters();
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
+	
 	//make true map loaded once
 	boolean hasLoaded = false;
 	TileMap tileMap = new TileMap(16);
 	int[][] map;
+	
 	@FXML
 	public GridPane grid;
 	@FXML 

@@ -49,7 +49,7 @@ public class MapViewerModel implements IMapViewer {
 		modelHelper.showReminder(reminder, "Load Map Successfully!\n\nPlease Set Axe/Boat\nJust Click the button!");
 	}
 
-	/*
+	/*s
 	 * @see psyyx3.cw2.MapViewer.Model.IMapViewer#setAxe(javafx.scene.layout.
 	 * GridPane, javafx.scene.control.Label)
 	 */
