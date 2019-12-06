@@ -4,33 +4,37 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
+<<<<<<< HEAD:Map-Viewer/src/fxmlFiles/MapviewerController.java
 public class MapviewerController implements UIControllerInterface {
 	
+=======
+public class UIMapviewerController implements UIMVControllerInterface {
+>>>>>>> 41ef2b2fa88ac9abb01f757d12682c43ab5bfb2e:Map-Viewer/src/fxmlFiles/UIMapviewerController.java
 	UIControllerFunctions holder = new UIControllerFunctions();
-	StatusGetters status = new StatusGetters();
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
 	
 	//make true map loaded once
 	boolean hasLoaded = false;
 	TileMap tileMap = new TileMap(16);
+	MouseEvent cursor;
 	int[][] map;
 	
 	@FXML
 	public GridPane grid;
 	@FXML 
-	public Label reminder, cords;
-	@FXML
-	public MouseEvent hover;
+	public Label reminder,cords;
+	public StatusGetters status = new StatusGetters();
 	
 	
 	public void initialize() {
 		hasLoaded = true;
 		holder.loadMap(grid,reminder);
-		status.setCordsText(cords, 0, 0);
+		status.setCordsText(cords,false, 0, 0);
 	}
 	
 	public void LoadMap() {
@@ -38,28 +42,30 @@ public class MapviewerController implements UIControllerInterface {
 		hasLoaded = true;
 		holder.loadMap(grid,reminder);
 		}
-	
+
 	}
-	public void PlaceAxe() {
-		this.hoverCords(hover);
-		holder.setAxe(grid, reminder);
+	
+	public void hoverCursor(MouseEvent event) {
+		cursor = event;
+		holder.setcords(grid, cords, cursor);
 		
 	}
 	
+	public void PlaceAxe() {
+		holder.setAxe(grid, reminder);
+	}
+	
 	public void PlaceBoat() {
-		this.hoverCords(hover);
-		holder.setBoat(grid, reminder);
+		System.out.println("Boat");
 	}
+
+    /*public void setMainApp(MainViewer mainapp) {
+    	
+    }*/
 	
-	
-	
-	public void hoverCords(MouseEvent event) {
-		hover=event;
-		status.getcords(grid,cords,hover);
+	public void closeApp() {
+		Stage stage = (Stage) grid.getScene().getWindow();
+		stage.close();
 	}
-	
-    public void closeApp() {
-    	System.exit(0);
-    }
 
 }
