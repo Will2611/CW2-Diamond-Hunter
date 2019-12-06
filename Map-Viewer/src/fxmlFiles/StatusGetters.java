@@ -20,8 +20,8 @@ public class StatusGetters {
 	
 	public StatusGetters() {
 		UIControllerFunctions holder = new UIControllerFunctions();
-		tileMap = holder.getTileMap();
-		map = holder.getMap();
+		//tileMap = holder.getTileMap();
+		//map = holder.getMap();
 	}
 	
 
