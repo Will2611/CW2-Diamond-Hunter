@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
@@ -26,7 +27,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public void initialize() {
 		hasLoaded = true;
 		holder.loadMap(grid,reminder);
-		status.setCordsText(cords, 0, 0);
+		status.setCordsText(cords,false, 0, 0);
 	}
 	
 	public void LoadMap() {
@@ -34,13 +35,12 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		hasLoaded = true;
 		holder.loadMap(grid,reminder);
 		}
-	
 
 	}
 	
 	public void hoverCursor(MouseEvent event) {
 		cursor = event;
-		status.getcords(grid, cords, cursor);
+		holder.setcords(grid, cords, cursor);
 		
 	}
 	
@@ -57,7 +57,8 @@ public class UIMapviewerController implements UIMVControllerInterface {
     }*/
 	
 	public void closeApp() {
-		System.exit(0);
+		Stage stage = (Stage) grid.getScene().getWindow();
+		stage.close();
 	}
 
 }
