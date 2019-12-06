@@ -11,13 +11,15 @@ module MapViewerMain {
 	exports Tiles;
 
 	requires javafx.base;
-	requires javafx.controls;
+	requires transitive javafx.controls;
 	requires javafx.fxml;
-	requires javafx.graphics;
+	requires transitive javafx.graphics;
 
 	requires javafx.media;
 	requires javafx.swing;
 	requires javafx.swt;
 	requires javafx.web;
+	
+	requires transitive java.desktop;
 	
 }
