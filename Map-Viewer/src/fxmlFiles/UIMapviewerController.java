@@ -27,7 +27,7 @@ public class UIMapviewerController implements UIControllerInterface {
 	public void initialize() {
 		hasLoaded = true;
 		holder.loadMap(grid,reminder);
-		//status.setCordsText(cords, 0, 0);
+		status.setCordsText(cords, 0, 0);
 	}
 	
 	public void LoadMap() {
@@ -40,6 +40,7 @@ public class UIMapviewerController implements UIControllerInterface {
 	public void PlaceAxe() {
 		this.hoverCords(hover);
 		holder.setAxe(grid, reminder);
+		
 	}
 	
 	public void PlaceBoat() {

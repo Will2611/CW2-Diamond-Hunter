@@ -33,26 +33,20 @@ public class StatusGetters {
 		return CursorCords;
 	}
 	public void setCordsText(Label cords, int getX, int getY) {
-		//String tileStatusTemp;
-		getTileStatus();
-		System.out.println(String.format(tileStatus, "Blocked"));
-		/*if (getTileStatus()==Tile.BLOCKED) {
-			
-		}else {
-			tileStatusTemp = String.format(tileStatus, "Free");
-		}*/
-		
+		System.out.println(getTileStatus());
 		cords.setText(String.format(coordinates, getX, getY,"Hello"));
+		
 	}
 	
 	public int getTileStatus() {
 		int getX = CursorCords[0];
 		int getY = CursorCords[1];
-		if(tileMap.getIndex(getX, getY)<1 || tileMap.getIndex(getX, getY)>3) { // || CursorCords==AxeCords || CursorCords==BoatCords) {
-			return Tile.BLOCKED;
-		}else {
+		return tileMap.getIndex(getX, getY);
+		/*if(tileMap.getIndex(getX, getY)==1 || tileMap.getIndex(getX, getY)==3) { // || CursorCords==AxeCords || CursorCords==BoatCords) {
 			return Tile.NORMAL;
-		}
+		}else {
+			return Tile.BLOCKED;
+		}*/
 	}
 	
 	
