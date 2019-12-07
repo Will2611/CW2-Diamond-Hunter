@@ -42,7 +42,6 @@ public class Main extends Application {
 			UIMapviewerController controller = loader.getController();			
 			
 			primaryStage.show();
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

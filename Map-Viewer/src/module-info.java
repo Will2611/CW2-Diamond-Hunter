@@ -6,6 +6,7 @@
  *
  */
 module MapViewerMain {
+	
 	exports MapViewerMain;
 	exports Tiles;
 	exports fxmlFiles;
@@ -21,5 +22,6 @@ module MapViewerMain {
 	requires javafx.swing;
 	requires javafx.swt;
 	requires javafx.web;
+	
 	
 }
