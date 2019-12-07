@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class UIControllerFunctions {
-	TileMap tileMap = new TileMap(16);
+	TileMap tileMap = new TileMap(16); //16 is the tilesize
 	int[][] map;
 	int[][] mapStatus= new int[40][40];
 	int NUM_COL = 40;
@@ -29,12 +29,18 @@ public class UIControllerFunctions {
 			}
 
 		}
-		// tell user that load map successful
-		reminder.setText("Load Map Successfully!\n\nPlease Set Axe/Boat\nJust Click the button!");
+		
+		// tell user that load map successful & to click on the boat and axe
+		reminder.setText("Load Map Successfully!\n\n Set Axe/Boat by clicking the button on the right!");
 
 	}
 	public void setAxe(GridPane grid, Label reminder) {
+		if (map[getX][getY]==2) {
+			System.out.println("Unable to set axe at tree position.")
+		}
+		else {
 		System.out.println("axe");
+		}
 	}
 	
 	public void setBoat(GridPane grid, Label reminder) {

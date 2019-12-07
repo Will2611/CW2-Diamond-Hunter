@@ -225,8 +225,8 @@ public class PlayState extends GameState {
 		handleInput();
 		
 		// check events
-		if(eventStart) { eventStart() };
-		if(eventFinish) { eventFinish() };
+		if(eventStart) { eventStart(); }
+		if(eventFinish) { eventFinish(); };
 		
 		if(player.numDiamonds() == player.getTotalDiamonds()) {
 			eventFinish = blockInput = true;
