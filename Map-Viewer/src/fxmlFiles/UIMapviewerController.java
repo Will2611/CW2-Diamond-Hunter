@@ -8,15 +8,19 @@ import javafx.stage.Stage;
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
+
 public class UIMapviewerController implements UIMVControllerInterface {
+
 	UIControllerFunctions holder = new UIControllerFunctions();
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
+	
 	//make true map loaded once
 	boolean hasLoaded = false;
 	TileMap tileMap = new TileMap(16);
 	MouseEvent cursor;
 	int[][] map;
+	
 	@FXML
 	public GridPane grid;
 	@FXML 

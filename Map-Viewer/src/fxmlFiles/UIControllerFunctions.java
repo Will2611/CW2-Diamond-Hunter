@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class UIControllerFunctions {
-	TileMap tileMap = new TileMap(16);
+	TileMap tileMap = new TileMap(16); //16 is the tilesize
 	int[][] map;
 	int[][] mapStatus= new int[40][40];
 	int NUM_COL = 40;
@@ -29,8 +29,9 @@ public class UIControllerFunctions {
 			}
 
 		}
-		// tell user that load map successful
-		reminder.setText("Load Map Successfully!\n\nPlease Set Axe/Boat\nJust Click the button!");
+		
+		// tell user that load map successful & to click on the boat and axe
+		reminder.setText("Load Map Successfully!\n\n Set Axe/Boat by clicking the button on the right!");
 
 	}
 	public void setAxe(GridPane grid, Label reminder) {
@@ -44,12 +45,19 @@ public class UIControllerFunctions {
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
+		if (getX>=40) {//error capture for array out of index
+			getX=39;
+		}
+		if (getY>=40) {
+			getY=39;
+		}
 		getStatus.getcords(getX, getY, tileStatus(getX, getY), grid, cords, hover);
 		
 	}
 	
 	public boolean tileStatus(int getX, int getY) {// Colum, row, not the other way around
 		int [] cord = {getX, getY};
+		
 		if (map[getY][getX]==1||map[getY][getX]==2||map[getY][getX]==3) {
 			if (cord != getStatus.getAxeCords() && cord != getStatus.getBoatCords() && cord != getStatus.getPlayercords()) {
 				return true;

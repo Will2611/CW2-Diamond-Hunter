@@ -1,5 +1,7 @@
 package Tiles;
 
+//this class is to load and split all sprites on start up
+
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;

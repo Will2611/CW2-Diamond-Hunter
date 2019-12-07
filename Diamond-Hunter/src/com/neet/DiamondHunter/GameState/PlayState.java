@@ -8,7 +8,9 @@ package com.neet.DiamondHunter.GameState;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
-
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import com.neet.DiamondHunter.Entity.Diamond;
 import com.neet.DiamondHunter.Entity.Item;
 import com.neet.DiamondHunter.Entity.Player;
@@ -170,18 +172,49 @@ public class PlayState extends GameState {
 		
 	}
 	
+	/**	
+	 * Read the coordinates of items from setting file to array pos[]	
+	 * 	
+	 * @author Hanis	
+	 * @param filePath	
+	 * @param pos	
+	 */	
+	
+	void readPositionFromFile(String filePath, int[] pos) {	
+		try {	
+			InputStream in = getClass().getResourceAsStream(filePath);	
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));	
+			pos[0] = Integer.parseInt(br.readLine());	
+			pos[1] = Integer.parseInt(br.readLine());	
+		} catch (Exception e) {	
+			e.printStackTrace();	
+		}	
+	}	
+
 	private void populateItems() {
 		
 		Item item;
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
-		item.setTilePosition(26, 37);
+		
+		// store the coordinates of axe	
+		int[] axePos = new int[2];	
+				
+		// load position of axe from setting file	
+		readPositionFromFile("/SettingFile/axe.txt", axePos);	
+		
+		item.setTilePosition(26, 37); //item.setTilePosition(axePos[0], axePos[1]);
 		items.add(item);
 		
+		//store coordinates of the boat
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
-		item.setTilePosition(12, 4);
+		
+		//load position of the boat from setting file
+		int[] boatPos = new int[2]; // array store the coordinates of boat	
+		readPositionFromFile("/SettingFile/boat.txt", boatPos);
+		item.setTilePosition(12, 4); //item.setTilePosition(boatPos[0], boatPos[1]);
 		items.add(item);
 		
 	}
@@ -192,8 +225,8 @@ public class PlayState extends GameState {
 		handleInput();
 		
 		// check events
-		if(eventStart) eventStart();
-		if(eventFinish) eventFinish();
+		if(eventStart) { eventStart(); }
+		if(eventFinish) { eventFinish(); };
 		
 		if(player.numDiamonds() == player.getTotalDiamonds()) {
 			eventFinish = blockInput = true;
@@ -318,11 +351,11 @@ public class PlayState extends GameState {
 			gsm.setPaused(true);
 		}
 		if(blockInput) return;
-		if(Keys.isDown(Keys.LEFT)) player.setLeft();
-		if(Keys.isDown(Keys.RIGHT)) player.setRight();
-		if(Keys.isDown(Keys.UP)) player.setUp();
-		if(Keys.isDown(Keys.DOWN)) player.setDown();
-		if(Keys.isPressed(Keys.SPACE)) player.setAction();
+		if(Keys.isDown(Keys.LEFT)) { player.setLeft();}
+		if(Keys.isDown(Keys.RIGHT)) { player.setRight();}
+		if(Keys.isDown(Keys.UP)) {player.setUp();}
+		if(Keys.isDown(Keys.DOWN)) {player.setDown();}
+		if(Keys.isPressed(Keys.SPACE)) {player.setAction();}
 	}
 	
 	//===============================================

@@ -22,6 +22,7 @@ module MapViewerMain {
 	requires javafx.swing;
 	requires javafx.swt;
 	requires javafx.web;
+
 	
 	
 }
