@@ -62,12 +62,19 @@ public class UIControllerFunctions {
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
+		if (getX>=40) {//error capture for array out of index
+			getX=39;
+		}
+		if (getY>=40) {
+			getY=39;
+		}
 		getStatus.getcords(getX, getY, tileStatus(getX, getY), grid, cords, hover);
 		
 	}
 	
 	public boolean tileStatus(int getX, int getY) {// Colum, row, not the other way around
 		int [] cord = {getX, getY};
+		
 		if (map[getY][getX]==1||map[getY][getX]==2||map[getY][getX]==3) {
 			if (cord != getStatus.getAxeCords() && cord != getStatus.getBoatCords() && cord != getStatus.getPlayercords()) {
 				return true;
