@@ -41,7 +41,6 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-<<<<<<< HEAD:Map-Viewer/bin/fxmlFiles/MapvViewer.fxml
                   <Button layoutY="2.0" mnemonicParsing="false" onAction="#LoadMap" prefHeight="23.0" prefWidth="155.0" text="Load Map">
                      <font>
                         <Font name="System Bold" size="12.0" />
@@ -54,13 +53,10 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Button>
-                  <Label fx:id="cords" layoutX="14.0" layoutY="109.0" text="Label" />
-=======
                   <Button layoutY="2.0" mnemonicParsing="false" onAction="#LoadMap" prefHeight="23.0" prefWidth="155.0" text="Load Map" />
                   <Button layoutY="27.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Place Axe" />
                   <Button layoutY="52.0" mnemonicParsing="false" onAction="#PlaceBoat" prefHeight="23.0" prefWidth="155.0" text="Place Boat" />
                   <Label fx:id="cords" layoutX="14.0" layoutY="85.0" text="Label" />
->>>>>>> 41ef2b2fa88ac9abb01f757d12682c43ab5bfb2e:Map-Viewer/bin/fxmlFiles/UIMapviewer.fxml
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">

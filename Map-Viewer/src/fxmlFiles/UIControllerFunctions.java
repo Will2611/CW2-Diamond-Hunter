@@ -35,12 +35,7 @@ public class UIControllerFunctions {
 
 	}
 	public void setAxe(GridPane grid, Label reminder) {
-		if (map[getX][getY]==2) {
-			System.out.println("Unable to set axe at tree position.")
-		}
-		else {
 		System.out.println("axe");
-		}
 	}
 	
 	public void setBoat(GridPane grid, Label reminder) {
