@@ -34,12 +34,29 @@ public class UIControllerFunctions {
 		reminder.setText("Load Map Successfully!\n\n Set Axe/Boat by clicking the button on the right!");
 
 	}
+	
 	public void setAxe(GridPane grid, Label reminder) {
+		if (map[getY][getX]==20 || map[getY][getX]==2) {
+			System.out.println("Unable to set axe at tree position.")
+		}
+		else if (map[getY][getX]= 22) {
+			System.out.println("Unable to set axe at water position.")
+		}
+		else {
 		System.out.println("axe");
+		}
 	}
 	
 	public void setBoat(GridPane grid, Label reminder) {
-		System.out.println("boat");
+		if (map[getY][getX]==20 || map[getY][getX]==2) {
+			System.out.println("Unable to set boat at tree position.")
+		}
+		else if (map[getY][getX]= 22) {
+			System.out.println("Unable to set boat water position.")
+		}
+		else {
+		System.out.println("axe");
+		}
 	}
 	
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
