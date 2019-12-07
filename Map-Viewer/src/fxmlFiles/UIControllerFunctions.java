@@ -48,9 +48,9 @@ public class UIControllerFunctions {
 		
 	}
 	
-	public boolean tileStatus(int getX, int getY) {
+	public boolean tileStatus(int getX, int getY) {// Colum, row, not the other way around
 		int [] cord = {getX, getY};
-		if (map[getX][getY]==1||map[getX][getY]==2||map[getX][getY]==3) {
+		if (map[getY][getX]==1||map[getY][getX]==2||map[getY][getX]==3) {
 			if (cord != getStatus.getAxeCords() && cord != getStatus.getBoatCords() && cord != getStatus.getPlayercords()) {
 				return true;
 			}

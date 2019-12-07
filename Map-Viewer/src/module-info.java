@@ -11,7 +11,7 @@ module MapViewerMain {
 	exports fxmlFiles;
 	
 	requires transitive java.desktop;
-
+	
 	requires javafx.base;
 	requires transitive javafx.controls;
 	requires javafx.fxml;
