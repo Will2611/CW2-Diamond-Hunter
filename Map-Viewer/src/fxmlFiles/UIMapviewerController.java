@@ -8,12 +8,9 @@ import javafx.stage.Stage;
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
-<<<<<<< HEAD:Map-Viewer/src/fxmlFiles/MapviewerController.java
-public class MapviewerController implements UIControllerInterface {
-	
-=======
+
 public class UIMapviewerController implements UIMVControllerInterface {
->>>>>>> 41ef2b2fa88ac9abb01f757d12682c43ab5bfb2e:Map-Viewer/src/fxmlFiles/UIMapviewerController.java
+
 	UIControllerFunctions holder = new UIControllerFunctions();
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
