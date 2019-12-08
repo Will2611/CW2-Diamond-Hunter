@@ -21,6 +21,7 @@ public class UIControllerFunctions {
 
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
+	
 	StatusGetters getStatus = new StatusGetters();
 	
 	public void loadMap(GridPane grid, Label reminder) {
@@ -45,22 +46,33 @@ public class UIControllerFunctions {
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
 		
-		int getX = (int) xy.getX()/tileMap.getTileSize();
-		int getY = (int) xy.getY()/tileMap.getTileSize();
+		/*
+		 * int getX = (int) xy.getX()/tileMap.getTileSize(); int getY = (int)
+		 * xy.getY()/tileMap.getTileSize();
+		 * 
+		 * if (map[getX][getY]==20 || map[getX][getY]==21) {
+		 * System.out.println("Unable to set axe at tree position.");
+		 * StatusGetters.checkPos(grid, getX, getY, reminder,
+		 * "Unable to set axe at tree position."); } else if (map[getX][getY]== 22) {
+		 * System.out.println("Unable to set axe at water position.");
+		 * StatusGetters.checkPos(grid, getX, getY, reminder,
+		 * "Unable to set axe at water position."); } else { System.out.println("axe");
+		 * capturePutAxe(getX, getY, filePath, grid, reminder); }
+		 */
 		
-		if (map[getX][getY]==20 || map[getX][getY]==21) {
-			System.out.println("Unable to set axe at tree position.");
-			StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set axe at tree position.");
+		for (int i = 0; i < NUM_COL; i++) {
+			for (int j = 0; j < NUM_ROW; j++) {
+
+				if (map[j][i] == 1 || map[j][i] == 2 || map[j][i] == 3) {
+
+					capturePutAxe(i, j, filePath, grid, reminder);
+
+				} else {
+					StatusGetters.checkPos(grid, i, j, reminder, "Please set item on grass");
+				}
+			}
 		}
-		else if (map[getX][getY]== 22) {
-			System.out.println("Unable to set axe at water position.");
-			StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set axe at water position.");
-		}
-		else {
-		System.out.println("axe");
-		capturePutAxe(getX, getY, filePath, grid, reminder);
-		}
-	
+		
 	}
 	
 	public void setBoat(GridPane grid, Label reminder, MouseEvent xy ) {
@@ -70,21 +82,33 @@ public class UIControllerFunctions {
 		String filePath = "../DiamondHunter/bin/SettingFile/boat.txt";
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
-		StatusGetters. getcords(getX,getY,true, grid, reminder, xy); 
 		
-		if (map[getX][getY]==20 || map[getX][getY]==21) {
-			System.out.println("Unable to set boat at tree position.");
-			StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set boat at tree position.");
-		}
-		else if (map[getX][getY]== 22) {
-			System.out.println("Unable to set boat water position.");
-			StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set boat at water position.");
-		}
-		else {
-		System.out.println("boat");
-		capturePutAxe(getX, getY, filePath, grid, reminder);
-		}
+		//StatusGetters. getcords(getX,getY,true, grid, reminder, xy); 
 		
+		/*
+		 * if (map[getX][getY]==20 || map[getX][getY]==21) {
+		 * System.out.println("Unable to set boat at tree position.");
+		 * StatusGetters.checkPos(grid, getX, getY, reminder,
+		 * "Unable to set boat at tree position."); } else if (map[getX][getY]== 22) {
+		 * System.out.println("Unable to set boat water position.");
+		 * StatusGetters.checkPos(grid, getX, getY, reminder,
+		 * "Unable to set boat at water position."); } else {
+		 * System.out.println("boat"); capturePutAxe(getX, getY, filePath, grid,
+		 * reminder); }
+		 */
+		
+		for (int i = 0; i < NUM_COL; i++) {
+			for (int j = 0; j < NUM_ROW; j++) {
+
+				if (map[j][i] == 1 || map[j][i] == 2 || map[j][i] == 3) {
+
+					capturePutBoat(i, j, filePath, grid, reminder);
+
+				} else {
+					StatusGetters.checkPos(grid, i, j, reminder, "Please set item on grass");
+				}
+			}
+		}
 	}
 	
 	public void capturePutAxe(int x, int y, String filePath, GridPane grid, Label reminder) {
