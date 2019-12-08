@@ -17,7 +17,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	//make true map loaded once
 	boolean hasLoaded = false;
-	TileMap tileMap = new TileMap(16);
+	TileMap tileMap = new TileMap(16); //16 is the tile size
 	MouseEvent cursor;
 	int[][] map;
 	
@@ -44,15 +44,15 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	public void hoverCursor(MouseEvent event) {
 		cursor = event;
-		holder.setcords(grid, cords, cursor);
-		
+		holder.setcords(grid, cords, cursor);	
 	}
 	
 	public void PlaceAxe() {
-		holder.setAxe(grid, reminder);
+		holder.setAxe(grid, reminder, cursor);
 	}
 	
 	public void PlaceBoat() {
+		holder.setBoat(grid, reminder, cursor);
 		System.out.println("Boat");
 	}
 
