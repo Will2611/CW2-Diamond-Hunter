@@ -35,17 +35,18 @@ public class UIControllerFunctions {
 		}
 		
 		// tell user that load map successful & to click on the boat and axe
-		reminder.setText("Successfully loaded map!\n\n Set Axe/Boat by clicking the button on the right!");
+		reminder.setText("Successfully loaded map!\n\n Set Axe/Boat now!");
 
 	}
 	
 	public void setAxe(GridPane grid, Label reminder, MouseEvent xy) {
+	
+		String filePath = "../DiamondHunter/bin/SettingFile/axe.txt";
+		
+		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
+		
 		int getX = (int) xy.getX()/tileMap.getTileSize();
 		int getY = (int) xy.getY()/tileMap.getTileSize();
-		
-		String filePath = "../DiamondHunter/bin/SettingFile/axe.txt";
-
-		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
 		
 		if (map[getX][getY]==20 || map[getX][getY]==21) {
 			System.out.println("Unable to set axe at tree position.");
@@ -59,15 +60,17 @@ public class UIControllerFunctions {
 		System.out.println("axe");
 		capturePutAxe(getX, getY, filePath, grid, reminder);
 		}
+	
 	}
 	
 	public void setBoat(GridPane grid, Label reminder, MouseEvent xy ) {
-		int getX = (int) xy.getX()/tileMap.getTileSize();
+	    int getX = (int) xy.getX()/tileMap.getTileSize();
 		int getY = (int) xy.getY()/tileMap.getTileSize();
-		
-		String filePath = "../DiamondHunter/bin/SettingFile/boat.txt";
 
+		String filePath = "../DiamondHunter/bin/SettingFile/boat.txt";
+		
 		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
+		StatusGetters. getcords(getX,getY,true, grid, reminder, xy); 
 		
 		if (map[getX][getY]==20 || map[getX][getY]==21) {
 			System.out.println("Unable to set boat at tree position.");
@@ -81,6 +84,7 @@ public class UIControllerFunctions {
 		System.out.println("boat");
 		capturePutAxe(getX, getY, filePath, grid, reminder);
 		}
+		
 	}
 	
 	public void capturePutAxe(int x, int y, String filePath, GridPane grid, Label reminder) {
@@ -126,7 +130,7 @@ public class UIControllerFunctions {
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
-		if (getX>=40) {//error capture for array out of index
+		if (getX>=40) { //error capture for array out of index
 			getX=39;
 		}
 		if (getY>=40) {

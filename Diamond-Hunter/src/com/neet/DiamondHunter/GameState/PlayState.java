@@ -175,7 +175,6 @@ public class PlayState extends GameState {
 	/**	
 	 * Read the coordinates of items from setting file to array pos[]	
 	 * 	
-	 * @author Hanis	
 	 * @param filePath	
 	 * @param pos	
 	 */	

@@ -18,6 +18,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import fxmlFiles.UIControllerFunctions;
 
+//this class contains functions to run mapviewer
+
 public class StatusGetters {
 	
 	int NUM_ROW = 40;
@@ -37,7 +39,11 @@ public class StatusGetters {
 		reminder.setText(message);
 	}
 	
-	public static void checkPos(GridPane grid, int x, int y, Label reminder, String message){ //x is colIndex and y is rowIndex
+	//check the item position
+	public static void checkPos(GridPane grid, int x, int y, Label reminder, String message){ 
+		
+		//x is colIndex and y is rowIndex
+		
 		Pane pane = new Pane();
 		grid.add(pane, x, y);
 
@@ -46,6 +52,7 @@ public class StatusGetters {
 		});
 	}
 	
+	//load image of axe on the tile
 	public static void generateAxeOnMap(GridPane grid, int x, int y) {
 		HBox imageField = new HBox();
 		imageField.setAlignment(Pos.CENTER);
@@ -56,6 +63,7 @@ public class StatusGetters {
 		imageField.getChildren().add(new ImageView(axeImage));
 	}
 	
+	//generate image of boat on the tile
 	public static void generateBoatOnMap(GridPane grid, int colIndex, int rowIndex) {
 		HBox imageField = new HBox();
 		imageField.setAlignment(Pos.CENTER);
@@ -63,10 +71,10 @@ public class StatusGetters {
 
 		BufferedImage boatBuf = Content.ITEMS[1][0];
 		Image boatImage = SwingFXUtils.toFXImage(boatBuf, null);
-		imageField.getChildren().add(new ImageView(boatImage));
-		
+		imageField.getChildren().add(new ImageView(boatImage));	
 	}
 
+	//print the coordinates on the file
 	public static void writePositionToFile(String filePath, int rowIndex, int colIndex) {
 		try {
 			File file = new File(filePath);
