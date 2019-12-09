@@ -6,7 +6,6 @@
  *
  */
 module MapViewerMain {
-	
 	exports MapViewerMain;
 	exports Tiles;
 	exports fxmlFiles;
