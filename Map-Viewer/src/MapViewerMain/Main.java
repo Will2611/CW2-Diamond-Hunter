@@ -1,6 +1,5 @@
 package MapViewerMain;
 	
-import fxmlFiles.UIMapviewerController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -28,18 +27,13 @@ public class Main extends Application {
 
 	public void starter() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/fxmlFiles/UIMapViewer.fxml"));
-			
-			root = (BorderPane) loader.load();
-			
+			root = (BorderPane)FXMLLoader.load(getClass().getResource("/fxmlFiles/UIMapviewer.fxml"));
 			Scene scene = new Scene(root);
 			
 			setUserAgentStylesheet(STYLESHEET_MODENA);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			
-			UIMapviewerController controller = loader.getController();			
+						
 			
 			primaryStage.show();
 		} catch(Exception e) {
