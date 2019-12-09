@@ -25,7 +25,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public GridPane grid;
 	
 	@FXML 
-	public Label reminder,cords;
+	public Label reminder,cords; //cordsboat & cordsaxe
 	public StatusGetters status = new StatusGetters();
 	
 	
@@ -69,7 +69,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
     	
     }*/
 	
-	public void Close() {
+	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
 	}

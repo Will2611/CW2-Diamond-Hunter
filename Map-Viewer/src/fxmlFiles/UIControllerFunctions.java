@@ -128,6 +128,33 @@ public class UIControllerFunctions {
 		});
 	}
 	
+	public void clearLastAxe(String filePath, GridPane grid, Label reminder) {
+
+		tileMap.generateOneTileByMap(grid, temp_axe[0], temp_axe[1]);
+
+		// when boat and axe in the same position
+		// we need keep boat there only to clear axe
+		
+		if (temp_boat[1] == temp_axe[1] && temp_boat[0] == temp_axe[0]) {
+			StatusGetters.generateBoatOnMap(grid, temp_boat[1], temp_boat[0]);
+		}
+
+		capturePutAxe(filePath, grid, reminder);
+
+	}
+
+	public void clearLastBoat(String filePath, GridPane grid, Label reminder) {
+
+		tileMap.generateOneTileByMap(grid, temp_boat[0], temp_boat[1]);
+
+		if (temp_boat[1] == temp_axe[1] && temp_boat[0] == temp_axe[0]) {
+
+			StatusGetters.generateAxeOnMap(grid, temp_axe[1], temp_axe[0]);
+		}
+		capturePutBoat(filePath, grid, reminder);
+
+	}
+	
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
