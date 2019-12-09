@@ -6,6 +6,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -49,23 +51,37 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="158.0" styleClass="background">
                <children>
-                  <Button layoutX="1.0" layoutY="142.0" mnemonicParsing="false" onAction="#PlaceBoat" prefHeight="23.0" prefWidth="155.0" text="Place Boat">
+                  <Button layoutX="2.0" layoutY="179.0" mnemonicParsing="false" onAction="#PlaceBoat" prefHeight="23.0" prefWidth="155.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="95.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/Buttons/PlaceBoat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button layoutX="1.0" layoutY="71.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Place Axe">
+                  <Button layoutX="1.0" layoutY="71.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="92.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/Buttons/PlaceAxe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                   <Label fx:id="cords" layoutX="14.0" layoutY="14.0" styleClass="brightlabel" text="Label" />
-                  <Button layoutX="1.0" layoutY="262.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Reset">
+                  <Button layoutX="2.0" layoutY="289.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Reset">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="1.0" layoutY="296.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Play">
+                  <Button layoutX="1.0" layoutY="323.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Play">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
