@@ -88,10 +88,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="377.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" text="Play">
+                  <Button layoutX="4.0" layoutY="353.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="51.0" prefWidth="152.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/Buttons/Play.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </AnchorPane>
