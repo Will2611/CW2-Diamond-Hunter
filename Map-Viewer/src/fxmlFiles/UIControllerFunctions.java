@@ -40,115 +40,92 @@ public class UIControllerFunctions {
 
 	}
 	
-	public void setAxe(GridPane grid, Label reminder, MouseEvent xy) {
+	public void setAxe(GridPane grid, Label reminder) {
 	
 		String filePath = "../DiamondHunter/bin/SettingFile/axe.txt";
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
 		
-		/*
-		 * int getX = (int) xy.getX()/tileMap.getTileSize(); int getY = (int)
-		 * xy.getY()/tileMap.getTileSize();
-		 * 
-		 * if (map[getX][getY]==20 || map[getX][getY]==21) {
-		 * System.out.println("Unable to set axe at tree position.");
-		 * StatusGetters.checkPos(grid, getX, getY, reminder,
-		 * "Unable to set axe at tree position."); } else if (map[getX][getY]== 22) {
-		 * System.out.println("Unable to set axe at water position.");
-		 * StatusGetters.checkPos(grid, getX, getY, reminder,
-		 * "Unable to set axe at water position."); } else { System.out.println("axe");
-		 * capturePutAxe(getX, getY, filePath, grid, reminder); }
-		 */
-		
-		for (int i = 0; i < NUM_COL; i++) {
-			for (int j = 0; j < NUM_ROW; j++) {
-
-				if (map[j][i] == 1 || map[j][i] == 2 || map[j][i] == 3) {
-
-					capturePutAxe(i, j, filePath, grid, reminder);
-
-				} else {
-					StatusGetters.checkPos(grid, i, j, reminder, "Please set item on grass");
-				}
-			}
-		}
+		capturePutAxe(filePath, grid, reminder);
 		
 	}
 	
-	public void setBoat(GridPane grid, Label reminder, MouseEvent xy ) {
-	    int getX = (int) xy.getX()/tileMap.getTileSize();
-		int getY = (int) xy.getY()/tileMap.getTileSize();
-
+	public void setBoat(GridPane grid, Label reminder ) {
+	   
 		String filePath = "../DiamondHunter/bin/SettingFile/boat.txt";
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
 		
-		//StatusGetters. getcords(getX,getY,true, grid, reminder, xy); 
-		
-		/*
-		 * if (map[getX][getY]==20 || map[getX][getY]==21) {
-		 * System.out.println("Unable to set boat at tree position.");
-		 * StatusGetters.checkPos(grid, getX, getY, reminder,
-		 * "Unable to set boat at tree position."); } else if (map[getX][getY]== 22) {
-		 * System.out.println("Unable to set boat water position.");
-		 * StatusGetters.checkPos(grid, getX, getY, reminder,
-		 * "Unable to set boat at water position."); } else {
-		 * System.out.println("boat"); capturePutAxe(getX, getY, filePath, grid,
-		 * reminder); }
-		 */
-		
-		for (int i = 0; i < NUM_COL; i++) {
-			for (int j = 0; j < NUM_ROW; j++) {
-
-				if (map[j][i] == 1 || map[j][i] == 2 || map[j][i] == 3) {
-
-					capturePutBoat(i, j, filePath, grid, reminder);
-
-				} else {
-					StatusGetters.checkPos(grid, i, j, reminder, "Please set item on grass");
-				}
-			}
-		}
+		capturePutBoat(filePath, grid, reminder); 
 	}
 	
-	public void capturePutAxe(int x, int y, String filePath, GridPane grid, Label reminder) {
+	public void capturePutAxe(String filePath, GridPane grid, Label reminder) {
 
-		Pane pane = new Pane();
-		grid.add(pane, x, y);
-
-		pane.setOnMouseClicked(e -> {
+		grid.setOnMouseClicked(e -> {
+			int getX = (int) e.getX()/16;
+			int getY = (int) e.getY()/16;
+		
+			temp_axe[0] = getX;
+			temp_axe[1] = getY;
 			
-			
-			// keep the same position expression way with game
-			StatusGetters.writePositionToFile(filePath, y, x);
+			 if (map[getY][getX]==20 || map[getY][getX]==21) {
+			 
+				  System.out.println("Unable to set axe at tree position.");
+				  StatusGetters.checkPos(grid, getX, getY, reminder,"Unable to set axe at tree position."); 
+				  reminder.setText("Unable to set axe at tree position");
+			 } 
+			else if (map[getY][getX]== 22) {
+				
+				  System.out.println("Unable to set axe at water position.");
+				  StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set axe at water position."); 
+				  reminder.setText("Unable to set axe at water position");
+			} 
+			else {   
+				  System.out.println("axe");
+				  StatusGetters.generateAxeOnMap(grid, getX, getY);
+				  StatusGetters.writePositionToFile(filePath, getX, getY);
+			}
 
-			StatusGetters.generateAxeOnMap(grid, x, y);
-
-			temp_axe[0] = y;
-			temp_axe[1] = x;
 			StatusGetters.showReminder(reminder, "Set Axe Successfully!");
-
+			
+			grid.setOnMouseClicked(null);
+			
 		});
 
 	}
 
-	public void capturePutBoat(int x, int y, String filePath, GridPane grid, Label reminder) {
-
-		Pane pane = new Pane();
-		grid.add(pane, x, y);
-
-		pane.setOnMouseClicked(e -> {
-
-			StatusGetters.writePositionToFile(filePath, x, y);
-
-			StatusGetters.generateBoatOnMap(grid, x, y);
-			temp_boat[0] = x;
-			temp_boat[1] = y;
+	public void capturePutBoat(String filePath, GridPane grid, Label reminder) {
+		
+		grid.setOnMouseClicked(e -> {
+			int getX = (int) e.getX()/16;
+			int getY = (int) e.getY()/16;
+		
+			temp_boat[0] = getX;
+			temp_boat[1] = getY;
+			
+			 if (map[getY][getX]==20 || map[getY][getX]==21) {
+			 
+				  System.out.println("Unable to set boat at tree position.");
+				  StatusGetters.checkPos(grid, getX, getY, reminder,"Unable to set boat at tree position."); 
+				  reminder.setText("Unable to set boat at tree position");
+			 } 
+			else if (map[getY][getX]== 22) {
+				
+				  System.out.println("Unable to set boat at water position.");
+				  StatusGetters.checkPos(grid, getX, getY, reminder, "Unable to set boat at water position."); 
+				  reminder.setText("Unable to set boat at water position");
+			} 
+			else {   
+				  System.out.println("axe");
+				  StatusGetters.generateBoatOnMap(grid, getX, getY);
+				  StatusGetters.writePositionToFile(filePath, getX, getY);
+			}
 
 			StatusGetters.showReminder(reminder, "Set Boat Successfully!");
-
+			
+			grid.setOnMouseClicked(null);
+			
 		});
-
 	}
 	
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
@@ -165,10 +142,10 @@ public class UIControllerFunctions {
 	}
 	
 	
-	public boolean tileStatus(int getX, int getY) {// Column, row, not the other way around
-		int [] cord = {getX, getY};
+	public boolean tileStatus(int getX, int getY) {// x is row, y is column, not the other way around
+		int [] cord = {getX, getY}; //coordinated x and y
 		
-		if (map[getY][getX]==1||map[getY][getX]==2||map[getY][getX]==3) {
+		if (map[getY][getX]==1||map[getY][getX]==2||map[getY][getX]==3) { //map y and x
 			if (cord != getStatus.getAxeCords() && cord != getStatus.getBoatCords() && cord != getStatus.getPlayercords()) {
 				return true;
 			}

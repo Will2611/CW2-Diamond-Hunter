@@ -48,11 +48,11 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void PlaceAxe() {
-		holder.setAxe(grid, reminder, cursor);
+		holder.setAxe(grid, reminder);
 	}
 	
 	public void PlaceBoat() {
-		holder.setBoat(grid, reminder, cursor);
+		holder.setBoat(grid, reminder);
 		System.out.println("Boat");
 	}
 

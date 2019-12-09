@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import fxmlFiles.UIControllerFunctions;
 
-//this class contains functions to run mapviewer
+//this class contains functions to run map viewer
 
 public class StatusGetters {
 	
