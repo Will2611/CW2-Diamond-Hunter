@@ -5,13 +5,19 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
 
 
 public class UIMapviewerController implements UIMVControllerInterface {
-
-	UIControllerFunctions holder = new UIControllerFunctions();
+	
+	StatusGetters getStatus = new StatusGetters();
+	UIControllerFunctions functionHolder = new UIControllerFunctions();
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
 	
@@ -25,36 +31,48 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public GridPane grid;
 	
 	@FXML 
+<<<<<<< HEAD
 	public Label reminder,cords; //cordsboat & cordsaxe
 	public StatusGetters status = new StatusGetters();
+=======
+	public Label reminder,cords;
+	
+>>>>>>> b650d91aca82004641e50d82fc404ea21059bcdb
 	
 	
 	public void initialize() {
 		hasLoaded = true;
-		holder.loadMap(grid,reminder);
-		status.setCordsText(cords,false, 0, 0);
+		functionHolder.loadMap(grid,reminder);
+		/*int [] AxeCords = new int [2];
+		int [] BoatCords = new int [2];
+		readPositionFromFile("../DiamondHunter/bin/SettingFile/axe.txt", AxeCords);// to call upon most recently saved cords
+		readPositionFromFile("../DiamondHunter/bin/SettingFile/boat.txt", BoatCords);
+		getStatus.setCords(AxeCords, BoatCords);
+		*/
+		getStatus.setCordsText(cords,false, 0, 0);
+		//getStatus.generateAxeOnMap(grid, getStatus.getAxeCords()[0], getStatus.getAxeCords()[1]);
+		//getStatus.generateBoatOnMap(grid, getStatus.getBoatCords()[0], getStatus.getBoatCords()[1]);
 	}
 	
 	public void LoadMap() {
 		if (hasLoaded == false) {
 		hasLoaded = true;
-		holder.loadMap(grid,reminder);
+		functionHolder.loadMap(grid,reminder);
 		}
 
 	}
 	
 	public void hoverCursor(MouseEvent event) {
 		cursor = event;
-		holder.setcords(grid, cords, cursor);	
+		functionHolder.setcords(grid, cords, cursor);	
 	}
 	
 	public void PlaceAxe() {
-		holder.setAxe(grid, reminder);
+		functionHolder.setAxe(grid, reminder);
 	}
 	
 	public void PlaceBoat() {
-		holder.setBoat(grid, reminder);
-		System.out.println("Boat");
+		functionHolder.setBoat(grid, reminder);
 	}
 	
 	public void Reset() {
@@ -72,6 +90,21 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
+	}
+	
+	void readPositionFromFile(String filePath, int[] pos) {
+
+		try {
+			InputStream in = getClass().getResourceAsStream(filePath);
+			System.out.println("exisy");
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			System.out.println("existi");//debuging, finding error
+			pos[0] = Integer.parseInt(br.readLine());
+			pos[1] = Integer.parseInt(br.readLine());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

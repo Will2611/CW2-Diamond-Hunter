@@ -19,8 +19,8 @@ module MapViewerMain {
 
 	requires javafx.media;
 	requires javafx.swing;
-	requires javafx.swt;
 	requires javafx.web;
 
+	
 	
 }
