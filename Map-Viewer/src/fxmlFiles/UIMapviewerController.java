@@ -23,6 +23,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	@FXML
 	public GridPane grid;
+	
 	@FXML 
 	public Label reminder,cords;
 	public StatusGetters status = new StatusGetters();
@@ -55,12 +56,20 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		holder.setBoat(grid, reminder);
 		System.out.println("Boat");
 	}
+	
+	public void Reset() {
+		System.out.println("Reset Game");
+	}
+	
+	public void Play() {
+		System.out.println("Play Game");
+	}
 
     /*public void setMainApp(MainViewer mainapp) {
     	
     }*/
 	
-	public void closeApp() {
+	public void Close() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
 	}
