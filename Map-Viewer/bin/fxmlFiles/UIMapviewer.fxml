@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane styleClass="background" stylesheets="@../../bin/fxmlFiles/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlFiles.UIMapviewerController">
+<BorderPane maxHeight="-Infinity" prefHeight="640.0" styleClass="background" stylesheets="@../../bin/fxmlFiles/Style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlFiles.UIMapviewerController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -78,7 +78,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#hoverCursor" prefHeight="640.0" prefWidth="640.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+            <GridPane fx:id="grid" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseMoved="#hoverCursor" prefHeight="640.0" prefWidth="640.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.5" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.5" prefWidth="100.0" />
