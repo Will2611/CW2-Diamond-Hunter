@@ -92,9 +92,9 @@ public class UIMapviewerController implements UIMVControllerInterface {
 
 		try {
 			InputStream in = getClass().getResourceAsStream(filePath);
-			System.out.println("exisy");
+			System.out.println("exist");
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			System.out.println("existi");//debuging, finding error
+			System.out.println("existing");//debuging, finding error
 			pos[0] = Integer.parseInt(br.readLine());
 			pos[1] = Integer.parseInt(br.readLine());
 

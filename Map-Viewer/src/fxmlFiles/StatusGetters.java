@@ -46,7 +46,7 @@ public class StatusGetters {
 	}
 	
 	//load image of axe on the tile
-	public void generateAxeOnMap(GridPane grid, int rowIndex, int colIndex) { // only called upon if can place axe succesful, can update axe cords
+	public void generateAxeOnMap(GridPane grid, int rowIndex, int colIndex) { // only called upon if can place axe successful, can update axe cords
 		HBox imageField = new HBox();
 		imageField.setAlignment(Pos.CENTER);
 		grid.add(imageField, rowIndex, colIndex);

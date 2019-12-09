@@ -86,13 +86,30 @@ public class UIControllerFunctions {
 				  StatusGetters.showReminder(reminder, "Unable to set axe at water position."); 
 				  reminder.setText("Unable to set axe at water position");
 			} 
-			else {   
+			else if(getX == 17 && getY == 17) {
+				  System.out.println("Unable to set axe at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe at player position."); 
+				  reminder.setText("Unable to set axe at player position.");
+			}
+			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
+				  System.out.println("You have put axe at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put axe at this position here."); 
+				  reminder.setText("You have put axe at this position here.");
+			}
+			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
+				  System.out.println("Unable to set axe at boat position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe at boat position."); 
+				  reminder.setText("Unable to set axe at boat position.");
+			}
+			else {  
+				  this.clearLastAxe(filePath, grid, reminder);
 				  System.out.println("axe");
+				  StatusGetters.showReminder(reminder, "Set Axe Successfully!");
 				  getStatus.generateAxeOnMap(grid, getX, getY);
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
 			}
 
-			StatusGetters.showReminder(reminder, "Set Axe Successfully!");
+			
 			
 			grid.setOnMouseClicked(null);
 			
@@ -118,13 +135,28 @@ public class UIControllerFunctions {
 				  StatusGetters.showReminder(reminder, "Unable to set boat at water position."); 
 				  reminder.setText("Unable to set boat at water position");
 			} 
-			else {   
-				  System.out.println("axe");
+			else if(getX == 17 && getY == 17) {
+				  System.out.println("Unable to set boat at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat at player position."); 
+				  reminder.setText("Unable to set boat at player position.");
+			}
+			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
+				  System.out.println("Unable to set boat at axe position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat at axe position."); 
+				  reminder.setText("Unable to set boat at axe position.");
+			}
+			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
+				  System.out.println("You have put boat at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put boat at this position here."); 
+				  reminder.setText("You have put boat at this position here.");
+			}
+			else {  
+				  this.clearLastBoat(filePath, grid, reminder);
+				  System.out.println("boat");
+				  StatusGetters.showReminder(reminder, "Set Boat Successfully!");
 				  getStatus.generateBoatOnMap(grid, getX, getY);
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
 			}
-
-			StatusGetters.showReminder(reminder, "Set Boat Successfully!");
 			
 			grid.setOnMouseClicked(null);
 			
@@ -132,30 +164,20 @@ public class UIControllerFunctions {
 	}
 	
 	public void clearLastAxe(String filePath, GridPane grid, Label reminder) {
-
-		tileMap.generateOneTileByMap(grid, temp_axe[0], temp_axe[1]);
-
-		// when boat and axe in the same position
-		// we need keep boat there only to clear axe
 		
-		if (temp_boat[1] == temp_axe[1] && temp_boat[0] == temp_axe[0]) {
-			StatusGetters.generateBoatOnMap(grid, temp_boat[1], temp_boat[0]);
-		}
-
-		capturePutAxe(filePath, grid, reminder);
-
+		int [] temp_axe = new int [2];
+		temp_axe = getStatus.getAxeCords();
+		
+		tileMap.generateOneTileByMap(grid, temp_axe[0], temp_axe[1]);
 	}
 
 	public void clearLastBoat(String filePath, GridPane grid, Label reminder) {
-
+		
+		int [] temp_boat = new int [2];
+		temp_boat = getStatus.getBoatCords();
+		
+		
 		tileMap.generateOneTileByMap(grid, temp_boat[0], temp_boat[1]);
-
-		if (temp_boat[1] == temp_axe[1] && temp_boat[0] == temp_axe[0]) {
-
-			StatusGetters.generateAxeOnMap(grid, temp_axe[1], temp_axe[0]);
-		}
-		capturePutBoat(filePath, grid, reminder);
-
 	}
 	
 	public void setcords(GridPane grid, Label cords, MouseEvent hover) {

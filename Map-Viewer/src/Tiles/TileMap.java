@@ -97,9 +97,9 @@ public class TileMap {
 	 * @param row
 	 * @param col
 	 */
-	public void generateImage(int row, int col) {
+	public void generateImage(int col, int row) {
 
-		int rc = map[row][col];
+		int rc = map[col][row];
 		int r = rc / numTilesAcross;
 		int c = rc % numTilesAcross;
 		tileImage = SwingFXUtils.toFXImage(tiles[r][c].getImage(), null);
@@ -115,11 +115,11 @@ public class TileMap {
 
 		HBox tileField = new HBox();
 		tileField.setAlignment(Pos.CENTER);
-		grid.add(tileField, col, row);
+		grid.add(tileField, row, col);
 
 		ImageView tilePane = new ImageView();
 		tileField.getChildren().add(tilePane);
-		generateImage(row, col);
+		generateImage(col, row);
 		tilePane.setImage(getTileImage());
 	}
 
