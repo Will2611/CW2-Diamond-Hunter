@@ -203,7 +203,7 @@ public class PlayState extends GameState {
 		// load position of axe from setting file	
 		readPositionFromFile("/SettingFile/axe.txt", axePos);	
 		
-		item.setTilePosition(26, 37); //item.setTilePosition(axePos[0], axePos[1]);
+		item.setTilePosition(axePos[1], axePos[0]); //item.setTilePosition(axePos[0], axePos[1]);
 		items.add(item);
 		
 		//store coordinates of the boat
@@ -213,7 +213,7 @@ public class PlayState extends GameState {
 		//load position of the boat from setting file
 		int[] boatPos = new int[2]; // array store the coordinates of boat	
 		readPositionFromFile("/SettingFile/boat.txt", boatPos);
-		item.setTilePosition(12, 4); //item.setTilePosition(boatPos[0], boatPos[1]);
+		item.setTilePosition(boatPos[1], boatPos[0]); //item.setTilePosition(boatPos[0], boatPos[1]);
 		items.add(item);
 		
 	}

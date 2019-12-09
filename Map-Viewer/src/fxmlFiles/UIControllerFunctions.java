@@ -51,7 +51,7 @@ public class UIControllerFunctions {
 	
 	public void setAxe(GridPane grid, Label reminder) {
 	
-		String filePath = "../DiamondHunter/bin/SettingFile/axe.txt"; //to be changed later
+		String filePath = "../Diamond-Hunter/bin/SettingFile/axe.txt"; //to be changed later
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
 		
@@ -61,7 +61,7 @@ public class UIControllerFunctions {
 	
 	public void setBoat(GridPane grid, Label reminder ) {
 	   
-		String filePath = "../DiamondHunter/bin/SettingFile/boat.txt"; //to be changed later
+		String filePath = "../Diamond-Hunter/bin/SettingFile/boat.txt"; //to be changed later
 		
 		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
 		
