@@ -10,7 +10,7 @@ public class Content {
 	
 
 	public static BufferedImage[][] ITEMS = load("/Sprites/items.gif", 16, 16);
-	public static BufferedImage[][] PLAYER = load("/Sprites/player.gif", 16, 16);
+	public static BufferedImage[][] PLAYER = load("/Sprites/playersprites.gif", 16, 16);
 	
 	public static BufferedImage[][] load(String s, int w, int h) {
 		BufferedImage[][] ret;
