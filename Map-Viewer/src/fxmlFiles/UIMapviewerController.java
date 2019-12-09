@@ -82,7 +82,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
     	
     }*/
 	
-	public void Close() {
+	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
 	}
