@@ -63,7 +63,7 @@ public class UIControllerFunctions {
 	   
 		String filePath = "../Diamond-Hunter/bin/SettingFile/boat.txt"; //to be changed later
 		
-		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
+		StatusGetters.showReminder(reminder, "Please click a position \n to input boat!");
 		
 		capturePutBoat(filePath, grid, reminder); 
 	}
@@ -77,29 +77,29 @@ public class UIControllerFunctions {
 			 if (map[getY][getX]==20 || map[getY][getX]==21) {
 			 
 				  System.out.println("Unable to set axe at tree position.");
-				  StatusGetters.showReminder(reminder,"Unable to set axe at tree position."); 
-				  reminder.setText("Unable to set axe at tree position");
+				  StatusGetters.showReminder(reminder,"Unable to set axe \n at tree position."); 
+				  reminder.setText("Unable to set axe \n at tree position");
 			 } 
 			else if (map[getY][getX]== 22) {
 				
 				  System.out.println("Unable to set axe at water position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at water position."); 
-				  reminder.setText("Unable to set axe at water position");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at water position."); 
+				  reminder.setText("Unable to set axe \n at water position");
 			} 
 			else if(getX == 17 && getY == 17) {
 				  System.out.println("Unable to set axe at player position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at player position."); 
-				  reminder.setText("Unable to set axe at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at player position."); 
+				  reminder.setText("Unable to set axe \n at player position.");
 			}
 			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
 				  System.out.println("You have put axe at this position here.");
-				  StatusGetters.showReminder(reminder, "You have put axe at this position here."); 
-				  reminder.setText("You have put axe at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put axe at \n this position here."); 
+				  reminder.setText("You have put axe at \n this position here.");
 			}
 			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
 				  System.out.println("Unable to set axe at boat position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at boat position."); 
-				  reminder.setText("Unable to set axe at boat position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at boat position."); 
+				  reminder.setText("Unable to set axe \n at boat position.");
 			}
 			else {  
 				  this.clearLastAxe(filePath, grid, reminder);
@@ -126,29 +126,29 @@ public class UIControllerFunctions {
 			 if (map[getY][getX]==20 || map[getY][getX]==21) {
 			 
 				  System.out.println("Unable to set boat at tree position.");
-				  StatusGetters.showReminder(reminder,"Unable to set boat at tree position."); 
-				  reminder.setText("Unable to set boat at tree position");
+				  StatusGetters.showReminder(reminder,"Unable to set boat \n at tree position."); 
+				  reminder.setText("Unable to set boat \n at tree position");
 			 } 
 			else if (map[getY][getX]== 22) {
 				
 				  System.out.println("Unable to set boat at water position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at water position."); 
-				  reminder.setText("Unable to set boat at water position");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at water position."); 
+				  reminder.setText("Unable to set boat \n at water position");
 			} 
 			else if(getX == 17 && getY == 17) {
 				  System.out.println("Unable to set boat at player position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at player position."); 
-				  reminder.setText("Unable to set boat at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at player position."); 
+				  reminder.setText("Unable to set boat \n at player position.");
 			}
 			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
 				  System.out.println("Unable to set boat at axe position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at axe position."); 
-				  reminder.setText("Unable to set boat at axe position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at axe position."); 
+				  reminder.setText("Unable to set boat \n at axe position.");
 			}
 			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
 				  System.out.println("You have put boat at this position here.");
-				  StatusGetters.showReminder(reminder, "You have put boat at this position here."); 
-				  reminder.setText("You have put boat at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put boat \n at this position here."); 
+				  reminder.setText("You have put boat \n at this position here.");
 			}
 			else {  
 				  this.clearLastBoat(filePath, grid, reminder);
