@@ -21,8 +21,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#LoadMap" text="LoadMap" />
-              <MenuItem mnemonicParsing="false" text="Exit" />
+                  <MenuItem mnemonicParsing="false" onAction="#LoadMap" text="Load Map" />
+              <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="About" />
@@ -64,13 +64,6 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Resources/Buttons/PlaceAxe.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                   </Button>
                   <Label fx:id="cords" layoutX="14.0" layoutY="14.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Label" />
                   <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="29.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
@@ -85,6 +78,11 @@
                   </ImageView>
                   <Label fx:id="cordsAxe" layoutX="14.0" layoutY="136.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Axe coordinates:" />
                   <Label fx:id="cordsBoat" layoutX="14.0" layoutY="281.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Boat coordinates:" />
+                  <ImageView fitHeight="80.0" fitWidth="90.0" layoutX="35.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Resources/Buttons/PlaceAxe.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
         </items>
