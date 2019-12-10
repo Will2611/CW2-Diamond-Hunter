@@ -31,7 +31,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public GridPane grid;
 	
 	@FXML 
-	public Label reminder,cords; //cordsboat & cordsaxe
+	public Label reminder,cords,cordsAxe,cordsBoat; //cordsboat & cordsaxe
 	public StatusGetters status = new StatusGetters();
 
 	
