@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import javafx.event.EventHandler;
+import javafx.event.ActionEvent; 
 
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
@@ -32,7 +34,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public GridPane grid;
 	
 	@FXML 
-	public Label reminder,cords,cordsAxe,cordsBoat; //cordsboat & cordsaxe
+	public Label reminder,cords,cordsAxe,cordsBoat;
 	public StatusGetters status = new StatusGetters();
 
 	
@@ -65,11 +67,11 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void PlaceAxe() {
-		functionHolder.setAxe(grid, reminder, cordsAxe); //edited line
+		functionHolder.setAxe(grid, reminder, cordsAxe); 
 	}
 	
 	public void PlaceBoat() {
-		functionHolder.setBoat(grid, reminder, cordsBoat); //edited line
+		functionHolder.setBoat(grid, reminder, cordsBoat); 
 	}
 	
 	public void Reset() {
@@ -84,17 +86,46 @@ public class UIMapviewerController implements UIMVControllerInterface {
     	
     }*/
 	
+	public void aboutInfo() {
+		Alert alert = new Alert(AlertType.NONE);
+		EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() { 
+		public void handle(ActionEvent e) 
+	    { 
+		alert.setAlertType(AlertType.INFORMATION);
+		alert.setTitle("About");
+		alert.setHeaderText("About the software & diamond hunter");
+		alert.setContentText("Diamond Hunter - Version 1.0\n\nDiamond Hunter"
+				+ "is a 2D role playing game which the user needs to "
+				+ "control the hero to collect all of the 15 diamonds "
+				+ "on the map in order to win game. To achieve the goal, "
+				+ "the player needs to find axe and boat so that it can "
+				+ "open the blocked path. In addition, the map viewer "
+				+ "application serve as a purpose for user to overview "
+				+ "the whole map and place the axe and boat.");
+		alert.show();
+		//alert.setOnCloseRequest(event -> {alert.close();});
+	    }
+		};
+	}
+	
+	//reference: https://www.geeksforgeeks.org/javafx-alert-with-examples/
+	
+	public void howToPlay() {
+		Alert alert = new Alert(AlertType.INFORMATION); //incomplete
+		alert.setTitle("Instruction");
+		alert.setHeaderText(null);
+		alert.setContentText("- Up arrow: move forward\n"
+				+ "- Down arrow: move backwards\n"
+				+ "- Left arrow: turn left\n"
+				+ "- Right Arrow: turn right\n"
+				+ "- Enter:  "); //incomplete
+		alert.showAndWait();
+		alert.setOnCloseRequest(event -> {alert.close();});
+	}
+	
 	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
-	}
-	
-	public void aboutInfo() {
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("About");
-		alert.setHeaderText("About the software");
-		alert.setContentText("University of Nottingham \n\nVersion 1.0\n");
-		alert.showAndWait();
 	}
 	
 	void readPositionFromFile(String filePath, int[] pos) {
