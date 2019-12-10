@@ -64,6 +64,13 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/Buttons/PlaceAxe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                   <Label fx:id="cords" layoutX="14.0" layoutY="14.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Label" />
                   <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="29.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
@@ -76,13 +83,8 @@
                         <Image url="@../../Resources/Buttons/ResetButton.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="cordsAxe" layoutX="14.0" layoutY="136.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Axe coordinates:" />
-                  <Label fx:id="cordsBoat" layoutX="14.0" layoutY="281.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Boat coordinates:" />
-                  <ImageView fitHeight="80.0" fitWidth="90.0" layoutX="35.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Resources/Buttons/PlaceAxe.png" />
-                     </image>
-                  </ImageView>
+                  <Label fx:id="cordsAxe" layoutX="14.0" layoutY="136.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Axe co-ordinates:" />
+                  <Label fx:id="cordsBoat" layoutX="14.0" layoutY="281.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Boat co-ordinates:" />
                </children>
             </AnchorPane>
         </items>
