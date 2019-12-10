@@ -22,19 +22,11 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#LoadMap" text="LoadMap" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" text="About" />
+          <Menu mnemonicParsing="false" text="Help" />
         </menus>
       </MenuBar>
    </top>
