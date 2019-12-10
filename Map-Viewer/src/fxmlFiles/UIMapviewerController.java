@@ -5,7 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -86,6 +87,14 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
+	}
+	
+	public void aboutInfo() {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("About");
+		alert.setHeaderText("About the software");
+		alert.setContentText("University of Nottingham \n\nVersion 1.0\n");
+		alert.showAndWait();
 	}
 	
 	void readPositionFromFile(String filePath, int[] pos) {

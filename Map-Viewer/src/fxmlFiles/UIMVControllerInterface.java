@@ -8,6 +8,7 @@ public interface UIMVControllerInterface {
 	public void PlaceBoat();
 	public void hoverCursor(MouseEvent event);
 	public void closeApp();
+	public void aboutInfo();
 	
 	
 }
