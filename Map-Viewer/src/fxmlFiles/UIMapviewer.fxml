@@ -80,7 +80,7 @@
                   </ImageView>
                   <ImageView fitHeight="80.0" fitWidth="100.0" layoutX="29.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Resources/Buttons/Reset.png" />
+                        <Image url="@../../Resources/Buttons/ResetButton.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="cordsAxe" layoutX="14.0" layoutY="136.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Label" />
