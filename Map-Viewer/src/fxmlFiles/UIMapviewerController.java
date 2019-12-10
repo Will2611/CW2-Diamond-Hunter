@@ -64,11 +64,11 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void PlaceAxe() {
-		functionHolder.setAxe(grid, reminder);
+		functionHolder.setAxe(grid, reminder, cordsAxe); //edited line
 	}
 	
 	public void PlaceBoat() {
-		functionHolder.setBoat(grid, reminder);
+		functionHolder.setBoat(grid, reminder, cordsBoat); //edited line
 	}
 	
 	public void Reset() {
