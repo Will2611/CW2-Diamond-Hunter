@@ -53,7 +53,7 @@ public class UIControllerFunctions {
 	
 		String filePath = "../Diamond-Hunter/bin/SettingFile/axe.txt"; //to be changed later
 		
-		StatusGetters.showReminder(reminder, "Please click a position to input axe!");
+		StatusGetters.showReminder(reminder, "Please click a position \n to input axe!");
 		
 		capturePutAxe(filePath, grid, reminder);
 		
