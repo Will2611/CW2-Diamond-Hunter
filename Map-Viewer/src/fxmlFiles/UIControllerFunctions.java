@@ -68,8 +68,8 @@ public class UIControllerFunctions {
 		capturePutBoat(filePath, grid, reminder); 
 	}
 	
+	//public void capturePutAxe(String filePath, GridPane grid, Label reminder, Label cordsAxe) {
 	public void capturePutAxe(String filePath, GridPane grid, Label reminder) {
-
 		grid.setOnMouseClicked(e -> {
 			int getX = (int) e.getX()/tileMap.getTileSize();
 			int getY = (int) e.getY()/tileMap.getTileSize();
@@ -102,11 +102,14 @@ public class UIControllerFunctions {
 				  reminder.setText("Unable to set axe \n at boat position.");
 			}
 			else {  
-				  this.clearLastAxe(filePath, grid, reminder);
-				  System.out.println("axe");
-				  StatusGetters.showReminder(reminder, "Set Axe Successfully!");
-				  getStatus.generateAxeOnMap(grid, getX, getY);
-				  StatusGetters.writePositionToFile(filePath, getX, getY);
+				  this.clearLastAxe(filePath, grid, reminder); // removes previous axe, if any
+				  System.out.println("axe"); // displays the axe
+				  StatusGetters.showReminder(reminder, "Set Axe Successfully!"); // shows message
+				  getStatus.generateAxeOnMap(grid, getX, getY); // display the axe on the map
+				  StatusGetters.writePositionToFile(filePath, getX, getY); //put coordinates in the text file
+				  
+				  //put here that it prints the coordinate of the axe
+				  //StatusGetters.showCordsAxe(cordsAxe, getX, getY);
 			}
 
 			
@@ -154,7 +157,7 @@ public class UIControllerFunctions {
 				  this.clearLastBoat(filePath, grid, reminder);
 				  System.out.println("boat");
 				  StatusGetters.showReminder(reminder, "Set Boat Successfully!");
-				  getStatus.generateBoatOnMap(grid, getX, getY);
+				  getStatus.generateBoatOnMap(grid, getX, getY); // to display the boat on the desired location
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
 			}
 			
