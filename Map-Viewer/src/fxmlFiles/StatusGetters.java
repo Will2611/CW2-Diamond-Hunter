@@ -38,8 +38,8 @@ public class StatusGetters {
 	TileMap tileMap;
 	
 	//testing to display chosen coordinates in labels
-	String chosen_coordinates_axe = "Axe co-ordinates- X: %d, Y: %d\n";
-	String chosen_coordinates_boat = "Boat co-ordinates- X: %d, Y: %d\n";
+	String chosen_coordinates_axe = "Axe co-ordinates: \nX: %d, Y: %d\n";
+	String chosen_coordinates_boat = "Boat co-ordinates: \n X: %d, Y: %d\n";
 	
 	public StatusGetters() {
 		
@@ -47,16 +47,6 @@ public class StatusGetters {
 	
 	public static void showReminder(Label reminder, String message) {
 		reminder.setText(message);
-	}
-	
-	//put the chosen coordinates for axe
-	public static void showCordsAxe(Label cordsAxe, String message) {
-		cordsAxe.setText(message);
-	}
-	
-	//put the chosen coordinates for boat
-	public static void showCordsBoat(Label cordsBoat, String message) {
-		cordsBoat.setText(message);
 	}
 	
 	//load image of axe on the tile
@@ -125,6 +115,33 @@ public class StatusGetters {
 			
 	}
 	
+	//to display coordinates of Axe
+	public int[] getcordsAxe(int getX, int getY, Label cordsAxe)
+	{
+		CursorCords[0] = getX;
+		CursorCords[1] = getY;
+		displayCordsAxeText(cordsAxe, CursorCords[0], CursorCords[1]);
+		return CursorCords;
+	}
+
+	//to display coordinates of Axe
+	private void displayCordsAxeText(Label cordsAxe, int getX, int getY) {
+		cordsAxe.setText(String.format(chosen_coordinates_axe, getX, getY));
+	}
+	
+	//to display coordinates of Boat
+	public int[] getcordsBoat(int getX, int getY, Label cordsBoat)
+	{
+		CursorCords[0] = getX;
+		CursorCords[1] = getY;
+		displayCordsBoatText(cordsBoat, CursorCords[0], CursorCords[1]);
+		return CursorCords;
+	}
+	
+	//to display coordinates of Boat
+	private void displayCordsBoatText(Label cordsBoat, int getX, int getY) {
+		cordsBoat.setText(String.format(chosen_coordinates_boat, getX, getY));
+	}
 
 	public boolean isPlayerCords(int [] cord) {
 		if (cord [0]==PlayerCords[0] && cord[1]==PlayerCords[1]) {

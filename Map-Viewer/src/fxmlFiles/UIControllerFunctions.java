@@ -109,7 +109,7 @@ public class UIControllerFunctions {
 				  StatusGetters.writePositionToFile(filePath, getX, getY); //put coordinates in the text file
 				  
 				  //put here that it prints the coordinate of the axe in a message
-				  StatusGetters.showCordsAxe(cordsAxe, "Coordinates for axe: ");
+				  getStatus.getcordsAxe(getX, getY, cordsAxe);
 			}
 
 			
@@ -161,7 +161,7 @@ public class UIControllerFunctions {
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
 				  
 				//put here that it prints the coordinate of the boat in a message
-				  StatusGetters.showCordsBoat(cordsBoat, "Coordinates for boat: ");
+				  getStatus.getcordsBoat(getX, getY, cordsBoat);
 			}
 			
 			grid.setOnMouseClicked(null);
