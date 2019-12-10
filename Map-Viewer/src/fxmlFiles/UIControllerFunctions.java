@@ -1,6 +1,7 @@
 package fxmlFiles;
 
 import Tiles.Content;
+
 import Tiles.TileMap;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
@@ -49,27 +50,26 @@ public class UIControllerFunctions {
 
 	}
 	
-	public void setAxe(GridPane grid, Label reminder) {
+	public void setAxe(GridPane grid, Label reminder, Label cordsAxe) {
 	
 		String filePath = "../Diamond-Hunter/bin/SettingFile/axe.txt"; //to be changed later
 		
 		StatusGetters.showReminder(reminder, "Please click a position \n to input axe!");
 		
-		capturePutAxe(filePath, grid, reminder);
+		capturePutAxe(filePath, grid, reminder, cordsAxe);
 		
 	}
 	
-	public void setBoat(GridPane grid, Label reminder ) {
+	public void setBoat(GridPane grid, Label reminder, Label cordsBoat ) {
 	   
 		String filePath = "../Diamond-Hunter/bin/SettingFile/boat.txt"; //to be changed later
 		
-		StatusGetters.showReminder(reminder, "Please click a position to input boat!");
+		StatusGetters.showReminder(reminder, "Please click a position \n to input boat!");
 		
-		capturePutBoat(filePath, grid, reminder); 
+		capturePutBoat(filePath, grid, reminder, cordsBoat); 
 	}
-	
-	public void capturePutAxe(String filePath, GridPane grid, Label reminder) {
 
+	public void capturePutAxe(String filePath, GridPane grid, Label reminder, Label cordsAxe) {
 		grid.setOnMouseClicked(e -> {
 			int getX = (int) e.getX()/tileMap.getTileSize();
 			int getY = (int) e.getY()/tileMap.getTileSize();
@@ -77,36 +77,39 @@ public class UIControllerFunctions {
 			 if (map[getY][getX]==20 || map[getY][getX]==21) {
 			 
 				  System.out.println("Unable to set axe at tree position.");
-				  StatusGetters.showReminder(reminder,"Unable to set axe at tree position."); 
-				  reminder.setText("Unable to set axe at tree position");
+				  StatusGetters.showReminder(reminder,"Unable to set axe \n at tree position."); 
+				  reminder.setText("Unable to set axe \n at tree position");
 			 } 
 			else if (map[getY][getX]== 22) {
 				
 				  System.out.println("Unable to set axe at water position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at water position."); 
-				  reminder.setText("Unable to set axe at water position");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at water position."); 
+				  reminder.setText("Unable to set axe \n at water position");
 			} 
 			else if(getX == 17 && getY == 17) {
 				  System.out.println("Unable to set axe at player position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at player position."); 
-				  reminder.setText("Unable to set axe at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at player position."); 
+				  reminder.setText("Unable to set axe \n at player position.");
 			}
 			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
 				  System.out.println("You have put axe at this position here.");
-				  StatusGetters.showReminder(reminder, "You have put axe at this position here."); 
-				  reminder.setText("You have put axe at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put axe at \n this position here."); 
+				  reminder.setText("You have put axe at \n this position here.");
 			}
 			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
 				  System.out.println("Unable to set axe at boat position.");
-				  StatusGetters.showReminder(reminder, "Unable to set axe at boat position."); 
-				  reminder.setText("Unable to set axe at boat position.");
+				  StatusGetters.showReminder(reminder, "Unable to set axe \n at boat position."); 
+				  reminder.setText("Unable to set axe \n at boat position.");
 			}
 			else {  
-				  this.clearLastAxe(filePath, grid, reminder);
-				  System.out.println("axe");
-				  StatusGetters.showReminder(reminder, "Set Axe Successfully!");
-				  getStatus.generateAxeOnMap(grid, getX, getY);
-				  StatusGetters.writePositionToFile(filePath, getX, getY);
+				  this.clearLastAxe(filePath, grid, reminder); // removes previous axe, if any
+				  System.out.println("axe"); // displays the axe
+				  StatusGetters.showReminder(reminder, "Set Axe Successfully!"); // shows message
+				  getStatus.generateAxeOnMap(grid, getX, getY); // display the axe on the map
+				  StatusGetters.writePositionToFile(filePath, getX, getY); //put coordinates in the text file
+				  
+				  //put here that it prints the coordinate of the axe in a message
+				  getStatus.getcordsAxe(getX, getY, cordsAxe);
 			}
 
 			
@@ -117,7 +120,7 @@ public class UIControllerFunctions {
 
 	}
 
-	public void capturePutBoat(String filePath, GridPane grid, Label reminder) {
+	public void capturePutBoat(String filePath, GridPane grid, Label reminder, Label cordsBoat) {
 		
 		grid.setOnMouseClicked(e -> {
 			int getX = (int) e.getX()/tileMap.getTileSize();
@@ -126,36 +129,39 @@ public class UIControllerFunctions {
 			 if (map[getY][getX]==20 || map[getY][getX]==21) {
 			 
 				  System.out.println("Unable to set boat at tree position.");
-				  StatusGetters.showReminder(reminder,"Unable to set boat at tree position."); 
-				  reminder.setText("Unable to set boat at tree position");
+				  StatusGetters.showReminder(reminder,"Unable to set boat \n at tree position."); 
+				  reminder.setText("Unable to set boat \n at tree position");
 			 } 
 			else if (map[getY][getX]== 22) {
 				
 				  System.out.println("Unable to set boat at water position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at water position."); 
-				  reminder.setText("Unable to set boat at water position");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at water position."); 
+				  reminder.setText("Unable to set boat \n at water position");
 			} 
 			else if(getX == 17 && getY == 17) {
 				  System.out.println("Unable to set boat at player position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at player position."); 
-				  reminder.setText("Unable to set boat at player position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at player position."); 
+				  reminder.setText("Unable to set boat \n at player position.");
 			}
 			else if(getX == getStatus.getAxeCords()[0] && getY == getStatus.getAxeCords()[1]) {
 				  System.out.println("Unable to set boat at axe position.");
-				  StatusGetters.showReminder(reminder, "Unable to set boat at axe position."); 
-				  reminder.setText("Unable to set boat at axe position.");
+				  StatusGetters.showReminder(reminder, "Unable to set boat \n at axe position."); 
+				  reminder.setText("Unable to set boat \n at axe position.");
 			}
 			else if(getX == getStatus.getBoatCords()[0] && getY == getStatus.getBoatCords()[1]) {
 				  System.out.println("You have put boat at this position here.");
-				  StatusGetters.showReminder(reminder, "You have put boat at this position here."); 
-				  reminder.setText("You have put boat at this position here.");
+				  StatusGetters.showReminder(reminder, "You have put boat \n at this position here."); 
+				  reminder.setText("You have put boat \n at this position here.");
 			}
 			else {  
 				  this.clearLastBoat(filePath, grid, reminder);
 				  System.out.println("boat");
 				  StatusGetters.showReminder(reminder, "Set Boat Successfully!");
-				  getStatus.generateBoatOnMap(grid, getX, getY);
+				  getStatus.generateBoatOnMap(grid, getX, getY); // to display the boat on the desired location
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
+				  
+				//put here that it prints the coordinate of the boat in a message
+				  getStatus.getcordsBoat(getX, getY, cordsBoat);
 			}
 			
 			grid.setOnMouseClicked(null);

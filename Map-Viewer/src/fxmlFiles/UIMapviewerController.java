@@ -31,7 +31,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public GridPane grid;
 	
 	@FXML 
-	public Label reminder,cords; //cordsboat & cordsaxe
+	public Label reminder,cords,cordsAxe,cordsBoat; //cordsboat & cordsaxe
 	public StatusGetters status = new StatusGetters();
 
 	
@@ -64,11 +64,11 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void PlaceAxe() {
-		functionHolder.setAxe(grid, reminder);
+		functionHolder.setAxe(grid, reminder, cordsAxe); //edited line
 	}
 	
 	public void PlaceBoat() {
-		functionHolder.setBoat(grid, reminder);
+		functionHolder.setBoat(grid, reminder, cordsBoat); //edited line
 	}
 	
 	public void Reset() {
