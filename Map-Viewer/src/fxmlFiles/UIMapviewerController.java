@@ -110,10 +110,10 @@ public class UIMapviewerController implements UIMVControllerInterface {
 				+ "- Down arrow: move backwards\n"
 				+ "- Left arrow: turn left\n"
 				+ "- Right Arrow: turn right\n"
-				+ "- Enter: start the game"
-				+ "- Space: to clear dead trees"
-				+ "- Esc: to pause and unpause "
-				+ "- F1: to return to main menu when paused");
+				+ "- Enter: start the game\n"
+				+ "- Space: to clear dead trees\n"
+				+ "- Esc: to pause and unpause\n"
+				+ "- F1: to return to main menu when paused\n");
 		alert.showAndWait();
 		alert.setOnCloseRequest(event -> {alert.close();});
 	}
