@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" prefHeight="640.0" styleClass="background" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlFiles.UIMapviewerController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -26,6 +25,12 @@
               <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="ZoomIn +" />
+                  <MenuItem mnemonicParsing="false" text="ZoomOut -" />
+              </items>
+            </Menu>
           <Menu mnemonicParsing="false" onAction="#aboutInfo" onMenuValidation="#aboutInfo" onShowing="#aboutInfo" onShown="#aboutInfo" text="About" />
           <Menu mnemonicParsing="false" text="Help" />
         </menus>
