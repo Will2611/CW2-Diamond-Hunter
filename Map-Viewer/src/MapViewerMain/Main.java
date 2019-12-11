@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.primaryStage = primaryStage;
-			this.primaryStage.setTitle("MapViewer");
+			this.primaryStage.setTitle("Map Viewer Application");
 			this.primaryStage.setResizable(false);
 
 			starter();
