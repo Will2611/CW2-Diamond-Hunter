@@ -54,7 +54,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	public void hoverCursor(MouseEvent event) {
 		cursor = event;
-		functionHolder.setcords(grid, cords, cursor);	
+		functionHolder.setHoverCords(grid, cords, cursor);	
 	}
 	
 	public void PlaceAxe() {
@@ -66,7 +66,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void Reset() {
-		System.out.println("Reset Game");
+		functionHolder.resetHandler(grid, cordsAxe, cordsBoat);
 	}
 	
 	public void Play() {

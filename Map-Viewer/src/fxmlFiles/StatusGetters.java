@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 
-import Tiles.*;
+import Tiles.Content;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -32,8 +32,6 @@ public class StatusGetters {
 	int[] defaultAxeCords = {37, 26};
 	int[] defaultBoatCords = {4, 12};
 	String coordinates ="Co-ordinates- X: %d, Y: %d\nStatus: %s";
-	String tileStatus = "";
-	TileMap tileMap;
 	
 	//display chosen coordinates in labels
 	String chosen_coordinates_axe = "Axe co-ordinates: \nX: %d, Y: %d\n";
@@ -141,6 +139,7 @@ public class StatusGetters {
 		return false;	
 		}
 	}
+	
 	public boolean isAxeCords(int [] cord) {
 		if (cord [0]==AxeCords[0] && cord[1]==AxeCords[1]) {
 			return true;
@@ -148,6 +147,7 @@ public class StatusGetters {
 		return false;	
 		}
 	}
+	
 	public boolean isBoatCords(int [] cord) {
 		if (cord [0]==BoatCords[0] && cord[1]==BoatCords[1]) {
 			return true;
@@ -171,6 +171,21 @@ public class StatusGetters {
 	public int[] getBoatCords() {
 		return BoatCords;
 	}
+	
+	public void factoryReset(GridPane grid) {
+		String axePos = "/DiamondHunter/SettingFile/axe.txt";
+		
+		String boatPos = "/DiamondHunter/SettingFile/boat.txt";
+		
+		AxeCords = defaultAxeCords.clone();
+		BoatCords = defaultBoatCords.clone();//prevent overwriting default/factory setting
+		
+		StatusGetters.writePositionToFile(axePos, AxeCords[0], AxeCords[1]);
+		StatusGetters.writePositionToFile(boatPos, BoatCords[0], BoatCords[1]);//Write A file into existence;
+		this.generateAxeOnMap(grid, AxeCords[0], AxeCords[1]);
+		this.generateBoatOnMap(grid, BoatCords[0], BoatCords[1]);
+	}
+	
 	public void setLastSavedCords(GridPane grid) {
 		String axePos = "/DiamondHunter/SettingFile/axe.txt";
 		File fileAxe = new File(axePos);
@@ -182,12 +197,7 @@ public class StatusGetters {
 			AxeCords = readPositionFromFile(fileAxe);
 			BoatCords = readPositionFromFile(fileBoat);;
 		}else {
-			
-				AxeCords = defaultAxeCords.clone();
-				BoatCords = defaultBoatCords.clone();//prevent overwriting default/factory setting
-				
-				StatusGetters.writePositionToFile(axePos, AxeCords[0], AxeCords[1]);
-				StatusGetters.writePositionToFile(boatPos, BoatCords[0], BoatCords[1]);//Write A file into existence;
+			this.factoryReset(grid);
 			
 		}
 			this.generateAxeOnMap(grid, AxeCords[0], AxeCords[1]);

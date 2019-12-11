@@ -5,7 +5,10 @@ import Tiles.Content;
 import Tiles.TileMap;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 import java.awt.image.BufferedImage;
+import java.util.Optional;
 
 
 public class UIControllerFunctions {
@@ -94,7 +98,7 @@ public class UIControllerFunctions {
 				  StatusGetters.showReminder(reminder, "Unable to set axe \n at boat position."); 
 			}
 			else {  
-				  this.clearLastAxe(filePath, grid, reminder); // removes previous axe image, if any
+				  this.clearLastAxe(grid); // removes previous axe image, if any
 				  StatusGetters.writePositionToFile(filePath, getX, getY); //put coordinates in the text file
 				  getStatus.generateAxeOnMap(grid, getX, getY); // display the axe on the map
 				  StatusGetters.showReminder(reminder, "Set Axe Successfully!"); // shows message
@@ -137,7 +141,7 @@ public class UIControllerFunctions {
 				  StatusGetters.showReminder(reminder, "You have put boat \n at this position here."); 
 			}
 			else {  
-				  this.clearLastBoat(filePath, grid, reminder); //clear current position before saving
+				  this.clearLastBoat(grid); //clear current position before saving
 				  StatusGetters.writePositionToFile(filePath, getX, getY);
 				  getStatus.generateBoatOnMap(grid, getX, getY); // to display the boat on the desired location
 				  StatusGetters.showReminder(reminder, "Set Boat Successfully!");
@@ -151,7 +155,7 @@ public class UIControllerFunctions {
 		});
 	}
 	
-	public void clearLastAxe(String filePath, GridPane grid, Label reminder) {
+	public void clearLastAxe(GridPane grid) {
 		
 		int [] temp_axe = new int [2];
 		temp_axe = getStatus.getAxeCords();
@@ -159,14 +163,14 @@ public class UIControllerFunctions {
 		tileMap.generateOneTileByMap(grid, temp_axe[0], temp_axe[1]);
 	}
 
-	public void clearLastBoat(String filePath, GridPane grid, Label reminder) {
+	public void clearLastBoat(GridPane grid) {
 		
 		int [] temp_boat = new int [2];
 		temp_boat = getStatus.getBoatCords();
 		tileMap.generateOneTileByMap(grid, temp_boat[0], temp_boat[1]);
 	}
 	
-	public void setcords(GridPane grid, Label cords, MouseEvent hover) {
+	public void setHoverCords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
 		if (getX>=40) { //error capture for array out of index
@@ -179,7 +183,6 @@ public class UIControllerFunctions {
 		
 	}
 	
-	
 	public boolean tileStatusfree(int getX, int getY) {// x is row, y is column, not the other way around
 		int [] cord = {getX, getY}; //coordinated x and y
 		
@@ -191,8 +194,26 @@ public class UIControllerFunctions {
 			return false;
 	}
 	
-	public TileMap getTileMap() {
-		return tileMap;
+	public void resetHandler(GridPane grid, Label cordsAxe, Label cordsBoat) {
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Are you sure?");
+		alert.setHeaderText("WARNING: THIS CANNOT BE UNDONE");
+		alert.setContentText("This is a Factory Reset and your Diamond Hunter\nwill revert back to factory settings.");
+		
+		Optional<ButtonType> result = alert.showAndWait();
+		
+		if (result.get() == ButtonType.OK){
+			this.clearLastAxe(grid);
+			this.clearLastBoat(grid);
+		    getStatus.factoryReset(grid);
+			getStatus.getAxeCords(getStatus.getAxeCords()[0], getStatus.getAxeCords()[1], cordsAxe);
+			getStatus.getBoatCords(getStatus.getBoatCords()[0], getStatus.getBoatCords()[1], cordsBoat);
+
+		} else {
+		    alert.close();
+		}
+		
+		
 	}
 	
 }
