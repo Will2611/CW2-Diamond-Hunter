@@ -1,8 +1,5 @@
 package fxmlFiles;
 
-import Tiles.Content;
-
-import Tiles.TileMap;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
@@ -18,9 +15,12 @@ import javafx.scene.layout.HBox;
 import java.awt.image.BufferedImage;
 import java.util.Optional;
 
+import TilesFX.ContentFX;
+import TilesFX.TileMapFX;
+
 
 public class UIControllerFunctions {
-	TileMap tileMap = new TileMap(16); //16 is the tile size
+	TileMapFX tileMap = new TileMapFX(16); //16 is the tile size
 	int[][] map;
 	int[][] mapStatus= new int[40][40];
 	int NUM_COL = 40;
@@ -43,7 +43,7 @@ public class UIControllerFunctions {
 					imageField.setAlignment(Pos.CENTER);
 					grid.add(imageField, row, col);
 
-					BufferedImage PlayerBuf = Content.PLAYER[0][0];
+					BufferedImage PlayerBuf = ContentFX.PLAYER[0][0];
 					Image PlayerImage = SwingFXUtils.toFXImage(PlayerBuf, null);
 					imageField.getChildren().add(new ImageView(PlayerImage));	
 
@@ -216,4 +216,7 @@ public class UIControllerFunctions {
 		
 	}
 	
+	public void playGame() {
+		
+	}
 }

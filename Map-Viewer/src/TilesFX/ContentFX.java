@@ -1,4 +1,4 @@
-package Tiles;
+package TilesFX;
 
 //this class is to load and split all sprites on start up
 
@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-public class Content {
+public class ContentFX {
 	
 
 	public static BufferedImage[][] ITEMS = load("/Sprites/items.gif", 16, 16);
@@ -15,7 +15,7 @@ public class Content {
 	public static BufferedImage[][] load(String s, int w, int h) {
 		BufferedImage[][] ret;
 		try {
-			BufferedImage spritesheet = ImageIO.read(Content.class.getResourceAsStream(s));
+			BufferedImage spritesheet = ImageIO.read(ContentFX.class.getResourceAsStream(s));
 			int width = spritesheet.getWidth() / w;
 			int height = spritesheet.getHeight() / h;
 			ret = new BufferedImage[height][width];

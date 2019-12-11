@@ -7,7 +7,7 @@
  */
 module MapViewerMain {
 	exports MapViewerMain;
-	exports Tiles;
+	exports TilesFX;
 	exports fxmlFiles;
 	
 	requires transitive java.desktop;
@@ -20,6 +20,7 @@ module MapViewerMain {
 	requires javafx.media;
 	requires javafx.swing;
 	requires javafx.web;
+//	requires DiamondHunter;
 
 	
 	

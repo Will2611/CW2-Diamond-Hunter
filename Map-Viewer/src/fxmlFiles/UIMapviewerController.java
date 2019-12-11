@@ -8,7 +8,10 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 
-import Tiles.TileMap;
+
+//import com.neet.DiamondHunter.Main.Game;
+
+import TilesFX.TileMapFX;
 import fxmlFiles.UIControllerFunctions;
 
 
@@ -21,7 +24,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	//make true map loaded once
 	boolean hasLoaded = false;
-	TileMap tileMap = new TileMap(16); //16 is the tile size
+	TileMapFX tileMap = new TileMapFX(16); //16 is the tile size
 	MouseEvent cursor;
 	int[][] map;
 	
@@ -70,7 +73,10 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	}
 	
 	public void Play() {
+		this.howToPlay();
 		System.out.println("Play Game");
+		functionHolder.playGame();
+		//Game.main(null);
 	}
 	
 	public void aboutInfo() {

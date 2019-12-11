@@ -7,8 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
-
-import Tiles.Content;
+import TilesFX.ContentFX;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -29,8 +28,8 @@ public class StatusGetters {
 	int[] BoatCords = new int [2];
 	static boolean loadCords = false;
 	int [] PlayerCords = {17, 17};
-	int[] defaultAxeCords = {37, 26};
-	int[] defaultBoatCords = {4, 12};
+	static final 	int[] defaultAxeCords = {37, 26};
+	static final int[] defaultBoatCords = {4, 12};
 	String coordinates ="Co-ordinates- X: %d, Y: %d\nStatus: %s";
 	
 	//display chosen coordinates in labels
@@ -49,7 +48,7 @@ public class StatusGetters {
 		HBox imageField = new HBox();
 		imageField.setAlignment(Pos.CENTER);
 		grid.add(imageField, rowIndex, colIndex);
-		BufferedImage axeBuf = Content.ITEMS[1][1];
+		BufferedImage axeBuf = ContentFX.ITEMS[1][1];
 		Image axeImage = SwingFXUtils.toFXImage(axeBuf, null);
 		imageField.getChildren().add(new ImageView(axeImage));
 	}
@@ -59,7 +58,7 @@ public class StatusGetters {
 		HBox imageField = new HBox();
 		imageField.setAlignment(Pos.CENTER);
 		grid.add(imageField, rowIndex, colIndex);
-		BufferedImage boatBuf = Content.ITEMS[1][0];
+		BufferedImage boatBuf = ContentFX.ITEMS[1][0];
 		Image boatImage = SwingFXUtils.toFXImage(boatBuf, null);
 		imageField.getChildren().add(new ImageView(boatImage));	
 	}
