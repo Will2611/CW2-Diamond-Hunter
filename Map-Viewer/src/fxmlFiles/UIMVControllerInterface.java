@@ -1,5 +1,6 @@
 package fxmlFiles;
 
+import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 
 public interface UIMVControllerInterface {
@@ -7,8 +8,8 @@ public interface UIMVControllerInterface {
 	public void PlaceAxe();
 	public void PlaceBoat();
 	public void hoverCursor(MouseEvent event);
-	public void closeApp();
 	public void aboutInfo();
-	
-	
+	public void howToPlay();
+	public void closeApp();
+		
 }

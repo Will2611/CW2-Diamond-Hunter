@@ -25,6 +25,7 @@
               <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
+<<<<<<< HEAD
             <Menu mnemonicParsing="false" text="Edit">
               <items>
                 <MenuItem mnemonicParsing="false" text="ZoomIn +" />
@@ -33,6 +34,10 @@
             </Menu>
           <Menu mnemonicParsing="false" onAction="#aboutInfo" onMenuValidation="#aboutInfo" onShowing="#aboutInfo" onShown="#aboutInfo" text="About" />
           <Menu mnemonicParsing="false" text="Help" />
+=======
+          <Menu mnemonicParsing="false" onAction="#aboutInfo" text="About" />
+          <Menu mnemonicParsing="false" onAction="#howToPlay" text="Help" />
+>>>>>>> c17010ae491809191de880714974c100ce34b690
         </menus>
       </MenuBar>
    </top>

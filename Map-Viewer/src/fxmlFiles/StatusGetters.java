@@ -37,7 +37,7 @@ public class StatusGetters {
 	String tileStatus = "";
 	TileMap tileMap;
 	
-	//testing to display chosen coordinates in labels
+	//display chosen coordinates in labels
 	String chosen_coordinates_axe = "Axe co-ordinates: \nX: %d, Y: %d\n";
 	String chosen_coordinates_boat = "Boat co-ordinates: \n X: %d, Y: %d\n";
 	
