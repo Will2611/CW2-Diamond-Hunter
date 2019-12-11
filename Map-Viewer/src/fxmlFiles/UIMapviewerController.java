@@ -87,13 +87,9 @@ public class UIMapviewerController implements UIMVControllerInterface {
     }*/
 	
 	public void aboutInfo() {
-		Alert alert = new Alert(AlertType.NONE);
-		EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() { 
-		public void handle(ActionEvent e) 
-	    { 
-		alert.setAlertType(AlertType.INFORMATION);
+		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("About");
-		alert.setHeaderText("About the software & diamond hunter");
+		alert.setHeaderText("About the software & Diamond Hunter");
 		alert.setContentText("Diamond Hunter - Version 1.0\n\nDiamond Hunter"
 				+ "is a 2D role playing game which the user needs to "
 				+ "control the hero to collect all of the 15 diamonds "
@@ -102,13 +98,9 @@ public class UIMapviewerController implements UIMVControllerInterface {
 				+ "open the blocked path. In addition, the map viewer "
 				+ "application serve as a purpose for user to overview "
 				+ "the whole map and place the axe and boat.");
-		alert.show();
-		//alert.setOnCloseRequest(event -> {alert.close();});
-	    }
-		};
+		alert.showAndWait();
+		alert.setOnCloseRequest(event -> {alert.close();});
 	}
-	
-	//reference: https://www.geeksforgeeks.org/javafx-alert-with-examples/
 	
 	public void howToPlay() {
 		Alert alert = new Alert(AlertType.INFORMATION); //incomplete
@@ -118,7 +110,10 @@ public class UIMapviewerController implements UIMVControllerInterface {
 				+ "- Down arrow: move backwards\n"
 				+ "- Left arrow: turn left\n"
 				+ "- Right Arrow: turn right\n"
-				+ "- Enter:  "); //incomplete
+				+ "- Enter: start the game"
+				+ "- Space: to clear dead trees"
+				+ "- Esc: to pause and unpause "
+				+ "- F1: to return to main menu when paused");
 		alert.showAndWait();
 		alert.setOnCloseRequest(event -> {alert.close();});
 	}

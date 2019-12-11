@@ -25,19 +25,14 @@
               <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
-<<<<<<< HEAD
-            <Menu mnemonicParsing="false" text="Edit">
-              <items>
-                <MenuItem mnemonicParsing="false" text="ZoomIn +" />
-                  <MenuItem mnemonicParsing="false" text="ZoomOut -" />
-              </items>
-            </Menu>
-          <Menu mnemonicParsing="false" onAction="#aboutInfo" onMenuValidation="#aboutInfo" onShowing="#aboutInfo" onShown="#aboutInfo" text="About" />
-          <Menu mnemonicParsing="false" text="Help" />
-=======
-          <Menu mnemonicParsing="false" onAction="#aboutInfo" text="About" />
-          <Menu mnemonicParsing="false" onAction="#howToPlay" text="Help" />
->>>>>>> c17010ae491809191de880714974c100ce34b690
+          <Menu mnemonicParsing="false" text="Information">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#aboutInfo" text="About" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#howToPlay" text="Instruction" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>
