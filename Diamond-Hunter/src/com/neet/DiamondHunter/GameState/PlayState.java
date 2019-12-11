@@ -9,8 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
 import com.neet.DiamondHunter.Entity.Diamond;
 import com.neet.DiamondHunter.Entity.Item;
 import com.neet.DiamondHunter.Entity.Player;
@@ -181,10 +181,11 @@ public class PlayState extends GameState {
 	
 	void readPositionFromFile(String filePath, int[] pos) {	
 		try {	
-			InputStream in = getClass().getResourceAsStream(filePath);	
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));	
+			File file = new File(filePath);	
+			BufferedReader br = new BufferedReader(new FileReader(file));	
 			pos[0] = Integer.parseInt(br.readLine());	
 			pos[1] = Integer.parseInt(br.readLine());	
+			br.close();
 		} catch (Exception e) {	
 			e.printStackTrace();	
 		}	
@@ -201,7 +202,7 @@ public class PlayState extends GameState {
 		int[] axePos = new int[2];	
 				
 		// load position of axe from setting file	
-		readPositionFromFile("/SettingFile/axe.txt", axePos);	
+		readPositionFromFile("/DiamondHunter/SettingFile/axe.txt", axePos);	
 		
 		item.setTilePosition(axePos[1], axePos[0]); //item.setTilePosition(axePos[0], axePos[1]);
 		items.add(item);
@@ -212,7 +213,7 @@ public class PlayState extends GameState {
 		
 		//load position of the boat from setting file
 		int[] boatPos = new int[2]; // array store the coordinates of boat	
-		readPositionFromFile("/SettingFile/boat.txt", boatPos);
+		readPositionFromFile("/DiamondHunter/SettingFile/boat.txt", boatPos);
 		item.setTilePosition(boatPos[1], boatPos[0]); //item.setTilePosition(boatPos[0], boatPos[1]);
 		items.add(item);
 		

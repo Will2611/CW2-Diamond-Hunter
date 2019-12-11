@@ -7,11 +7,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import javafx.event.EventHandler;
-import javafx.event.ActionEvent; 
 
 import Tiles.TileMap;
 import fxmlFiles.UIControllerFunctions;
@@ -20,7 +15,7 @@ import fxmlFiles.UIControllerFunctions;
 public class UIMapviewerController implements UIMVControllerInterface {
 	
 	StatusGetters getStatus = new StatusGetters();
-	UIControllerFunctions functionHolder = new UIControllerFunctions();
+	UIControllerFunctions functionHolder = new UIControllerFunctions(getStatus);
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
 	
@@ -35,22 +30,18 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	@FXML 
 	public Label reminder,cords,cordsAxe,cordsBoat;
-	public StatusGetters status = new StatusGetters();
 
 	
 	
 	public void initialize() {
 		hasLoaded = true;
 		functionHolder.loadMap(grid,reminder);
-		/*int [] AxeCords = new int [2];
-		int [] BoatCords = new int [2];
-		readPositionFromFile("../DiamondHunter/bin/SettingFile/axe.txt", AxeCords);// to call upon most recently saved cords
-		readPositionFromFile("../DiamondHunter/bin/SettingFile/boat.txt", BoatCords);
-		getStatus.setCords(AxeCords, BoatCords);
-		*/
-		getStatus.setCordsText(cords,false, 0, 0);
-		//getStatus.generateAxeOnMap(grid, getStatus.getAxeCords()[0], getStatus.getAxeCords()[1]);
-		//getStatus.generateBoatOnMap(grid, getStatus.getBoatCords()[0], getStatus.getBoatCords()[1]);
+		getStatus.setCurrCordsText(cords,false, 0, 0);
+		getStatus.setLastSavedCords(grid);
+		int [] AxeCords = getStatus.getAxeCords().clone();
+		int [] BoatCords = getStatus.getBoatCords().clone();
+		getStatus.getAxeCords(AxeCords[0], AxeCords[1], cordsAxe);
+		getStatus.getBoatCords(BoatCords[0], BoatCords[1], cordsBoat);
 	}
 	
 	public void LoadMap() {
@@ -81,10 +72,6 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	public void Play() {
 		System.out.println("Play Game");
 	}
-
-    /*public void setMainApp(MainViewer mainapp) {
-    	
-    }*/
 	
 	public void aboutInfo() {
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -110,10 +97,10 @@ public class UIMapviewerController implements UIMVControllerInterface {
 				+ "- Down arrow: move backwards\n"
 				+ "- Left arrow: turn left\n"
 				+ "- Right Arrow: turn right\n"
-				+ "- Enter: start the game"
-				+ "- Space: to clear dead trees"
-				+ "- Esc: to pause and unpause "
-				+ "- F1: to return to main menu when paused");
+				+ "- Enter: start the game\n"
+				+ "- Space: to clear dead trees\n"
+				+ "- Esc: to pause and unpause \n"
+				+ "- F1: to return to main menu when paused\n");
 		alert.showAndWait();
 		alert.setOnCloseRequest(event -> {alert.close();});
 	}
@@ -123,19 +110,5 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		stage.close();
 	}
 	
-	void readPositionFromFile(String filePath, int[] pos) {
-
-		try {
-			InputStream in = getClass().getResourceAsStream(filePath);
-			System.out.println("exist");
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			System.out.println("existing");//debuging, finding error
-			pos[0] = Integer.parseInt(br.readLine());
-			pos[1] = Integer.parseInt(br.readLine());
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
+	
 }
