@@ -21,29 +21,21 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#LoadMap" text="LoadMap" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#LoadMap" text="Load Map" />
+              <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+          <Menu mnemonicParsing="false" onAction="#aboutInfo" text="About" />
+          <Menu mnemonicParsing="false" onAction="#howToPlay" text="Help" />
         </menus>
       </MenuBar>
    </top>
    <right>
-      <SplitPane dividerPositions="0.3215339233038348" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.26802507836990597" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="259.0" prefWidth="158.0" style="-fx-background-color: #000000;" styleClass="background">
                <children>
-                  <Label fx:id="reminder" layoutX="14.0" layoutY="136.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Label">
+                  <Label fx:id="reminder" layoutX="14.0" layoutY="84.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Message">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font></Label>
@@ -56,24 +48,24 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="413.0" prefWidth="158.0" style="-fx-background-color: #000000;" styleClass="background">
                <children>
-                  <Button layoutX="2.0" layoutY="171.0" mnemonicParsing="false" onAction="#PlaceBoat" prefHeight="23.0" prefWidth="155.0" style="-fx-background-color: #000000;">
+                  <Button layoutX="1.0" layoutY="184.0" mnemonicParsing="false" onAction="#PlaceBoat" prefHeight="79.0" prefWidth="157.0" style="-fx-background-color: #000000;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="120.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Resources/Buttons/PlaceBoat.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="2.0" layoutY="56.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" style="-fx-background-color: #000000;">
+                  <Button layoutX="2.0" layoutY="61.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="80.0" prefWidth="154.0" style="-fx-background-color: #000000;">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                      <graphic>
-                        <ImageView fitHeight="117.0" fitWidth="135.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Resources/Buttons/PlaceAxe.png" />
                            </image>
@@ -81,24 +73,20 @@
                      </graphic>
                   </Button>
                   <Label fx:id="cords" layoutX="14.0" layoutY="14.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Label" />
-                  <Button layoutX="2.0" layoutY="299.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="23.0" prefWidth="155.0" style="-fx-background-color: #000000;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
+                  <Button layoutX="16.0" layoutY="347.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="131.0" style="-fx-background-color: #000000;" textAlignment="CENTER">
                      <graphic>
-                        <ImageView fitHeight="65.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Resources/Buttons/Reset.png" />
+                              <Image url="@../../Resources/Buttons/ResetButton.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="4.0" layoutY="353.0" mnemonicParsing="false" onAction="#PlaceAxe" prefHeight="51.0" prefWidth="152.0" style="-fx-background-color: #000000;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
+                  <Label fx:id="cordsAxe" layoutX="14.0" layoutY="147.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Axe co-ordinates:" />
+                  <Label fx:id="cordsBoat" layoutX="14.0" layoutY="281.0" style="-fx-text-fill: #FFFFFF;" styleClass="brightlabel" text="Boat co-ordinates:" />
+                  <Button layoutX="24.0" layoutY="397.0" mnemonicParsing="false" style="-fx-background-color: #000000;">
                      <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Resources/Buttons/Play.png" />
                            </image>
