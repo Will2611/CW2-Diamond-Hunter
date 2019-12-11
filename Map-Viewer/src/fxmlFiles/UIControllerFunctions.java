@@ -15,6 +15,10 @@ import javafx.scene.layout.HBox;
 import java.awt.image.BufferedImage;
 import java.util.Optional;
 
+import javax.swing.JFrame;
+
+//import com.neet.DiamondHunter.Main.GamePanel;
+
 import TilesFX.ContentFX;
 import TilesFX.TileMapFX;
 
