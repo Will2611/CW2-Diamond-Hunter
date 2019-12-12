@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 
+import java.io.IOException;
+
+import DiamondHunter.Main.MainGame;
 
 //import com.neet.DiamondHunter.Main.Game;
 
@@ -72,11 +75,10 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		functionHolder.resetHandler(grid, cordsAxe, cordsBoat);
 	}
 	
-	public void Play() {
+	public void Play() throws IOException {
 		this.howToPlay();
-		System.out.println("Play Game");
-		functionHolder.playGame();
-		//Game.main(null);
+		this.closeApp();
+		MainGame.main(null);
 	}
 	
 	public void aboutInfo() {

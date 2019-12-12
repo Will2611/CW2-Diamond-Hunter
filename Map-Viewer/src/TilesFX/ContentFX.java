@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 public class ContentFX {
 	
 
-	public static BufferedImage[][] ITEMS = load("/Sprites/items.gif", 16, 16);
-	public static BufferedImage[][] PLAYER = load("/Sprites/playersprites.gif", 16, 16);
+	public static BufferedImage[][] ITEMS = load("/SpritesFX/items.gif", 16, 16);
+	public static BufferedImage[][] PLAYER = load("/SpritesFX/playersprites.gif", 16, 16);
 	
 	public static BufferedImage[][] load(String s, int w, int h) {
 		BufferedImage[][] ret;

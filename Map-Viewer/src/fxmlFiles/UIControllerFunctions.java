@@ -13,11 +13,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Optional;
 
-import javax.swing.JFrame;
-
-//import com.neet.DiamondHunter.Main.GamePanel;
+//import com.neet.DiamondHunter.Main.Game;
 
 import TilesFX.ContentFX;
 import TilesFX.TileMapFX;
@@ -36,8 +35,8 @@ public class UIControllerFunctions {
 	}
 	
 	public void loadMap(GridPane grid, Label reminder) {
-		tileMap.loadTiles("/Tilesets/testtileset.gif");
-		tileMap.loadMap("/Maps/testmap.map");
+		tileMap.loadTiles("/TilesetsFX/testtileset.gif");
+		tileMap.loadMap("/MapsFX/testmap.map");
 		map = tileMap.getMap();
 		for (int row = 0; row < NUM_ROW; row++) {
 			for (int col = 0; col < NUM_COL; col++) {
@@ -220,7 +219,10 @@ public class UIControllerFunctions {
 		
 	}
 	
-	public void playGame() {
-		
+	public void playGame() throws IOException {
+		ProcessBuilder game = new ProcessBuilder();
+		game.command("java -jar ./DM.jar");
+		var process = game.start();
+
 	}
 }
