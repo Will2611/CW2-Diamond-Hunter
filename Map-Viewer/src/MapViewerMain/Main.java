@@ -12,7 +12,7 @@ public class Main extends Application {
 	private BorderPane root;
 	private Stage primaryStage;
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage)  {
 		try {
 			this.primaryStage = primaryStage;
 			this.primaryStage.setTitle("Map Viewer Application");
@@ -41,7 +41,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LayerInstantiationException{
 		launch(args);
 	}
 }

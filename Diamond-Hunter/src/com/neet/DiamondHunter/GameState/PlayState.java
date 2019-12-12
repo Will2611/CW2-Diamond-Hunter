@@ -9,8 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
 import com.neet.DiamondHunter.Entity.Diamond;
 import com.neet.DiamondHunter.Entity.Item;
 import com.neet.DiamondHunter.Entity.Player;
@@ -179,14 +179,17 @@ public class PlayState extends GameState {
 	 * @param pos	
 	 */	
 	
-	void readPositionFromFile(String filePath, int[] pos) {	
-		try {	
-			InputStream in = getClass().getResourceAsStream(filePath);	
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));	
+	private int [] readPositionFromFile(File file) {	
+		try {
+			int [] pos = new int[2];
+			BufferedReader br = new BufferedReader(new FileReader(file));	
 			pos[0] = Integer.parseInt(br.readLine());	
 			pos[1] = Integer.parseInt(br.readLine());	
+			br.close();
+			return pos;
 		} catch (Exception e) {	
-			e.printStackTrace();	
+			e.printStackTrace();
+			return null;
 		}	
 	}	
 
@@ -198,10 +201,27 @@ public class PlayState extends GameState {
 		item.setType(Item.AXE);
 		
 		// store the coordinates of axe	
-		int[] axePos = new int[2];	
-				
-		// load position of axe from setting file	
-		readPositionFromFile("/SettingFile/axe.txt", axePos);	
+		int[] axePos;
+		int[] defaultAxePos = {37,26};
+		// load position of axe from setting file
+		String axePosFilePath = "/DiamondHunter/SettingFile/axe.txt";
+		File axePosFile = new File(axePosFilePath);
+		if(axePosFile.exists()) {
+			axePos = readPositionFromFile(axePosFile);
+		}else {
+			axePos = defaultAxePos.clone();
+		}
+	
+		//load position of the boat from setting file
+		int[] boatPos; // array store the coordinates of boat
+		int[] defaultBoatPos ={4,12};
+		String boatPosFilePath = "/DiamondHunter/SettingFile/boat.txt";
+		File boatPosFile = new File(boatPosFilePath);
+		if(boatPosFile.exists()) {
+			boatPos = readPositionFromFile(boatPosFile);
+		}else {
+			boatPos = defaultBoatPos.clone();
+		}
 		
 		item.setTilePosition(axePos[1], axePos[0]); //item.setTilePosition(axePos[0], axePos[1]);
 		items.add(item);
@@ -210,9 +230,7 @@ public class PlayState extends GameState {
 		item = new Item(tileMap);
 		item.setType(Item.BOAT);
 		
-		//load position of the boat from setting file
-		int[] boatPos = new int[2]; // array store the coordinates of boat	
-		readPositionFromFile("/SettingFile/boat.txt", boatPos);
+		
 		item.setTilePosition(boatPos[1], boatPos[0]); //item.setTilePosition(boatPos[0], boatPos[1]);
 		items.add(item);
 		

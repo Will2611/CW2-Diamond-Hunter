@@ -1,4 +1,4 @@
-package Tiles;
+package TilesFX;
 
 //The tile map class contains a loaded tile set
 //and a 2d array of the map.
@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
-public class TileMap {
+public class TileMapFX {
 
 	// map
 	private int[][] map;
@@ -31,12 +31,12 @@ public class TileMap {
 	// tileset
 	private BufferedImage tileset;
 	private int numTilesAcross;
-	private Tile[][] tiles;
+	private TileFX[][] tiles;
 
 	// image
 	private Image tileImage;
 
-	public TileMap(int tileSize) {
+	public TileMapFX(int tileSize) {
 		this.tileSize = tileSize;
 
 	}
@@ -48,14 +48,14 @@ public class TileMap {
 			tileset = ImageIO.read(getClass().getResourceAsStream(s));
 			numTilesAcross = tileset.getWidth() / tileSize;
 
-			tiles = new Tile[2][numTilesAcross];
+			tiles = new TileFX[2][numTilesAcross];
 
 			BufferedImage subimage;
 			for (int col = 0; col < numTilesAcross; col++) {
 				subimage = tileset.getSubimage(col * tileSize, 0, tileSize, tileSize);
-				tiles[0][col] = new Tile(subimage, Tile.NORMAL);
+				tiles[0][col] = new TileFX(subimage, TileFX.NORMAL);
 				subimage = tileset.getSubimage(col * tileSize, tileSize, tileSize, tileSize);
-				tiles[1][col] = new Tile(subimage, Tile.BLOCKED);
+				tiles[1][col] = new TileFX(subimage, TileFX.BLOCKED);
 			}
 
 		} catch (Exception e) {
@@ -135,7 +135,7 @@ public class TileMap {
 		return map;
 	}
 
-	public Tile[][] getTiles() {
+	public TileFX[][] getTiles() {
 		return tiles;
 	}
 
