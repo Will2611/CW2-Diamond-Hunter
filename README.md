@@ -2,7 +2,7 @@
 # Diamond Hunter Map Viewer
 ````
 ````
-![Image description](Readme.png)
+![Image description](ReadMeImage.png)
 ## Features 
 
 * Map Viewer
