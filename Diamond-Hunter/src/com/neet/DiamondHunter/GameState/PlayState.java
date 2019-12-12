@@ -179,7 +179,7 @@ public class PlayState extends GameState {
 	 * @param pos	
 	 */	
 	
-	private int [] readPositionFromFile(File file) {	
+	private int [] readPositionFromFile(File file) {	// read position from root
 		try {
 			int [] pos = new int[2];
 			BufferedReader br = new BufferedReader(new FileReader(file));	
@@ -206,10 +206,10 @@ public class PlayState extends GameState {
 		// load position of axe from setting file
 		String axePosFilePath = "/DiamondHunter/SettingFile/axe.txt";
 		File axePosFile = new File(axePosFilePath);
-		if(axePosFile.exists()) {
+		if(axePosFile.exists()) { //only read if file exists
 			axePos = readPositionFromFile(axePosFile);
 		}else {
-			axePos = defaultAxePos.clone();
+			axePos = defaultAxePos.clone(); //prevent overwritten by new file just in case
 		}
 	
 		//load position of the boat from setting file
@@ -217,10 +217,10 @@ public class PlayState extends GameState {
 		int[] defaultBoatPos ={4,12};
 		String boatPosFilePath = "/DiamondHunter/SettingFile/boat.txt";
 		File boatPosFile = new File(boatPosFilePath);
-		if(boatPosFile.exists()) {
+		if(boatPosFile.exists()) { //only read if file exists; independent just in case
 			boatPos = readPositionFromFile(boatPosFile);
 		}else {
-			boatPos = defaultBoatPos.clone();
+			boatPos = defaultBoatPos.clone(); //prevent overwritten by new file just in case
 		}
 		
 		item.setTilePosition(axePos[1], axePos[0]); //item.setTilePosition(axePos[0], axePos[1]);
