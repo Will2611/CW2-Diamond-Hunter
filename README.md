@@ -2,6 +2,7 @@
 # Diamond Hunter Map Viewer
 ````
 ````
+![Image description](Readme.png)
 ## Features 
 
 * Map Viewer
@@ -20,7 +21,7 @@
 ```
 ```
 
-### In main game
+## In main game
 
 Key: `UP, LEFT, DOWN, RIGHT` to move, `SPACE` to do action. 
 
@@ -44,3 +45,10 @@ To load Map:
  
 ````
 ````
+
+## Developer Information
+Hani Izzati Md Azmi [ID-20014068 | GitHubUsername - cibsm0re]  
+Aimi Syahirah Sazali [ID-20014176 | GitHubUsername - Aimi27]  
+Hanis Athirah Binti Abdullah [ID-20013407 | GitHubUsername - hanisathirah]  
+William Alexendar Ong Jia Jiang [ID-20128790 | GitHubUsername - Will2611]
+
