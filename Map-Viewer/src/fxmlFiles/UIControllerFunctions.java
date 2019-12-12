@@ -22,22 +22,26 @@ import TilesFX.TileMapFX;
 public class UIControllerFunctions {
 	TileMapFX tileMap = new TileMapFX(16); //16 is the tile size
 	int[][] map;
-	int[][] mapStatus= new int[40][40];
+	int[][] mapStatus= new int[40][40]; //the map size is 40 by 40
 	int NUM_COL = 40;
 	int NUM_ROW = 40;
 	
 	StatusGetters getStatus;
-	public UIControllerFunctions(StatusGetters getStatus) {//prevent multiple instance of the same objects being used for the same purpose
+	
+	//prevent multiple instance of the same objects being used for the same purpose
+	public UIControllerFunctions(StatusGetters getStatus) {
 		this.getStatus=getStatus;
 	}
 	
+	//to load map
 	public void loadMap(GridPane grid, Label reminder) {
-		tileMap.loadTiles("/TilesetsFX/testtileset.gif");
-		tileMap.loadMap("/MapsFX/testmap.map");
+		tileMap.loadTiles("/TilesetsFX/testtileset.gif"); // image for the map that will be extracted into pieces to create the map based on the numbers in testmap
+		tileMap.loadMap("/MapsFX/testmap.map"); //every number in testmap.map represents the image on the tile so we use the number on the testmap to create the map
 		map = tileMap.getMap();
 		for (int row = 0; row < NUM_ROW; row++) {
 			for (int col = 0; col < NUM_COL; col++) {
 				tileMap.generateOneTileByMap(grid, row, col);
+				//put player image on 17 by 17
 				if (row==17&&col==17) {
 					HBox imageField = new HBox();
 					imageField.setAlignment(Pos.CENTER);
@@ -57,16 +61,17 @@ public class UIControllerFunctions {
 
 	}
 	
+	//set axe position on the map and save the coordinates on txt file
 	public void setAxe(GridPane grid, Label reminder, Label cordsAxe) {
 	
-		String filePath = "/DiamondHunter/SettingFile/axe.txt"; //to be changed later
+		String filePath = "/DiamondHunter/SettingFile/axe.txt";
 		
 		StatusGetters.showReminder(reminder, "Please click a position \n to input axe!");
 		
-		capturePutAxe(filePath, grid, reminder, cordsAxe);
-		
+		capturePutAxe(filePath, grid, reminder, cordsAxe);	
 	}
 	
+	//set boat position on the map and save the coordinates on txt file
 	public void setBoat(GridPane grid, Label reminder, Label cordsBoat ) {
 	   
 		String filePath = "/DiamondHunter/SettingFile/boat.txt"; //to be changed later
@@ -75,7 +80,8 @@ public class UIControllerFunctions {
 		
 		capturePutBoat(filePath, grid, reminder, cordsBoat); 
 	}
-
+	
+	//place axe on the map only if the tile is not at player, water or tree coordinates
 	public void capturePutAxe(String filePath, GridPane grid, Label reminder, Label cordsAxe) {
 		grid.setOnMouseClicked(e -> {
 			int getX = (int) e.getX()/tileMap.getTileSize();
@@ -115,6 +121,7 @@ public class UIControllerFunctions {
 
 	}
 
+	//place boat on the map only if the tile is not at player, water or tree coordinates
 	public void capturePutBoat(String filePath, GridPane grid, Label reminder, Label cordsBoat) {
 		
 		grid.setOnMouseClicked(e -> {
@@ -155,6 +162,7 @@ public class UIControllerFunctions {
 		});
 	}
 	
+	//clear last axe when user placed new axe
 	public void clearLastAxe(GridPane grid) {
 		
 		int [] temp_axe = new int [2];
@@ -163,6 +171,7 @@ public class UIControllerFunctions {
 		tileMap.generateOneTileByMap(grid, temp_axe[0], temp_axe[1]);
 	}
 
+	//clear last boat when user placed new boat
 	public void clearLastBoat(GridPane grid) {
 		
 		int [] temp_boat = new int [2];
@@ -170,6 +179,7 @@ public class UIControllerFunctions {
 		tileMap.generateOneTileByMap(grid, temp_boat[0], temp_boat[1]);
 	}
 	
+	//when hover around the map, get the coordinates
 	public void setHoverCords(GridPane grid, Label cords, MouseEvent hover) {
 		int getX = (int) hover.getX()/tileMap.getTileSize();
 		int getY = (int) hover.getY()/tileMap.getTileSize();
@@ -183,6 +193,7 @@ public class UIControllerFunctions {
 		
 	}
 	
+	//if the map is not water, player, tree, axe or boat coordinates - the tile is considered free
 	public boolean tileStatusfree(int getX, int getY) {// x is row, y is column, not the other way around
 		int [] cord = {getX, getY}; //coordinated x and y
 		
@@ -194,6 +205,8 @@ public class UIControllerFunctions {
 			return false;
 	}
 	
+	//when the user clicked reset it will give an alert as below and clear axe and boat on the map & axe
+	//and boat will be placed on default position
 	public void resetHandler(GridPane grid, Label cordsAxe, Label cordsBoat) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("Are you sure?");
@@ -205,9 +218,9 @@ public class UIControllerFunctions {
 		if (result.get() == ButtonType.OK){
 			this.clearLastAxe(grid);
 			this.clearLastBoat(grid);
-		    getStatus.factoryReset(grid);
-			getStatus.getAxeCords(getStatus.getAxeCords()[0], getStatus.getAxeCords()[1], cordsAxe);
-			getStatus.getBoatCords(getStatus.getBoatCords()[0], getStatus.getBoatCords()[1], cordsBoat);
+		    getStatus.factoryReset(grid); //reset the map to default
+			getStatus.getAxeCords(getStatus.getAxeCords()[0], getStatus.getAxeCords()[1], cordsAxe); //update axe label
+			getStatus.getBoatCords(getStatus.getBoatCords()[0], getStatus.getBoatCords()[1], cordsBoat); //update boat label
 
 		} else {
 		    alert.close();
