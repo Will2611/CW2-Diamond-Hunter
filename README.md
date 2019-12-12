@@ -23,7 +23,7 @@
 
 ## In main game
 
-Key: `UP, LEFT, DOWN, RIGHT` to move, `SPACE` to do action. 
+Key: `UP, LEFT, DOWN, RIGHT` to move, `ENTER` to start the game, `SPACE` to clear the dead trees, `Esc` to pause and unpause, `F1` to return to main menu when pause. 
 
 ```
 ```
@@ -47,8 +47,8 @@ To load Map:
 ````
 
 ## Developer Information
-Hani Izzati Md Azmi [ID-20014068 | GitHubUsername - cibsm0re]  
 Aimi Syahirah Sazali [ID-20014176 | GitHubUsername - Aimi27]  
+Hani Izzati Md Azmi [ID-20014068 | GitHubUsername - cibsm0re]  
 Hanis Athirah Binti Abdullah [ID-20013407 | GitHubUsername - hanisathirah]  
 William Alexendar Ong Jia Jiang [ID-20128790 | GitHubUsername - Will2611]
 
