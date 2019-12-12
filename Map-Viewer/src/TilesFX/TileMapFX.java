@@ -4,6 +4,7 @@ package TilesFX;
 //and a 2d array of the map.
 //Each index in the map corresponds to a specific tile.
 //Naming convention to prevent conflict with DimaondHunter Module
+//
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -18,6 +19,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+
+//this is to generate the entire map image
 
 public class TileMapFX {
 

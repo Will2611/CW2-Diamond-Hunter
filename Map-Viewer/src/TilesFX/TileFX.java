@@ -2,6 +2,8 @@ package TilesFX;
 
 import java.awt.image.BufferedImage;
 
+// this class is for map image generation
+
 public class TileFX {
 	
 	private BufferedImage image;
