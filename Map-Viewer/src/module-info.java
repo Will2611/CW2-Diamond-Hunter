@@ -21,8 +21,6 @@ module MapViewerMain {
 	requires javafx.swing;
 	requires javafx.web;
 	requires DiamondHunter;
-	
-//	requires DM;
 
 	
 	

@@ -13,10 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.Optional;
-
-//import com.neet.DiamondHunter.Main.Game;
 
 import TilesFX.ContentFX;
 import TilesFX.TileMapFX;
@@ -219,10 +216,4 @@ public class UIControllerFunctions {
 		
 	}
 	
-	public void playGame() throws IOException {
-		ProcessBuilder game = new ProcessBuilder();
-		game.command("java -jar ./DM.jar");
-		var process = game.start();
-
-	}
 }

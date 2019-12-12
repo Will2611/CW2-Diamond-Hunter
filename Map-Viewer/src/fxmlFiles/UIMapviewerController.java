@@ -2,6 +2,8 @@ package fxmlFiles;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -9,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import DiamondHunter.Main.MainGame;
 
@@ -36,10 +39,12 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	
 	@FXML 
 	public Label reminder,cords,cordsAxe,cordsBoat;
-
+	
+	@FXML
+	public ImageView playButton, resetButton, Logo, placeBoatButton, placeAxeButton;
 	
 	
-	public void initialize() {
+	public void initialize() throws Exception {
 		hasLoaded = true;
 		functionHolder.loadMap(grid,reminder);
 		getStatus.setCurrCordsText(cords,false, 0, 0);
@@ -48,6 +53,31 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		int [] BoatCords = getStatus.getBoatCords().clone();
 		getStatus.getAxeCords(AxeCords[0], AxeCords[1], cordsAxe);
 		getStatus.getBoatCords(BoatCords[0], BoatCords[1], cordsBoat);
+		this.initializeButtons();
+	}
+	
+	public void initializeButtons() throws Exception {
+		String playButtonPath= "/Buttons/Play.png";
+		initializeImageView(playButtonPath, this.playButton);
+		
+		String resetButtonPath= "/Buttons/ResetButton.png";
+		initializeImageView(resetButtonPath, this.resetButton);
+		
+		String logoPath= "/Buttons/Diamondhunterlogo.png";
+		initializeImageView(logoPath, this.Logo);
+		
+		String placeAxePath= "/Buttons/PlaceAxe.png";
+		initializeImageView(placeAxePath, this.placeAxeButton);
+		
+		String placeBoatPath= "/Buttons/PlaceBoat.png";
+		initializeImageView(placeBoatPath, this.placeBoatButton);
+	}
+	
+	public ImageView initializeImageView(String filepath, ImageView imageView) throws Exception {
+		InputStream input = getClass().getResourceAsStream(filepath);
+        Image image = new Image(input);
+        imageView.setImage(image);
+        return imageView;
 	}
 	
 	public void LoadMap() {
