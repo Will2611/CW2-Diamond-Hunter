@@ -15,7 +15,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage)  {
 		try {
 			this.primaryStage = primaryStage;
-			this.primaryStage.setTitle("Map Viewer Application");
+			this.primaryStage.setTitle("Map Viewer Application"); //title displayed on the Map Viewer
 			this.primaryStage.setResizable(false);
 
 			starter();
@@ -27,11 +27,11 @@ public class Main extends Application {
 
 	public void starter() {
 		try {
-			root = (BorderPane)FXMLLoader.load(getClass().getResource("/fxmlFiles/UIMapviewer.fxml"));
+			root = (BorderPane)FXMLLoader.load(getClass().getResource("/fxmlFiles/UIMapviewer.fxml")); //calls fxml file to display the Map Viewer
 			Scene scene = new Scene(root);
 			
 			setUserAgentStylesheet(STYLESHEET_MODENA);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm()); //linking a stylesheet to the map viewer
 			primaryStage.setScene(scene);
 						
 			

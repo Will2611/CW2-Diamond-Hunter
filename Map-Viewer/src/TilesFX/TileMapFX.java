@@ -3,6 +3,8 @@ package TilesFX;
 //The tile map class contains a loaded tile set
 //and a 2d array of the map.
 //Each index in the map corresponds to a specific tile.
+//Naming convention to prevent conflict with DimaondHunter Module
+//
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -17,6 +19,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+
+//this is to generate the entire map image
 
 public class TileMapFX {
 
@@ -64,11 +68,11 @@ public class TileMapFX {
 
 	}
 
-	public void loadMap(String s) {
+	public void loadMap(String filepath) {// copy from PlayState of Diamond Hunter, no more 
 
 		try {
 
-			InputStream in = getClass().getResourceAsStream(s);
+			InputStream in = getClass().getResourceAsStream(filepath);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
 			numCols = Integer.parseInt(br.readLine());
