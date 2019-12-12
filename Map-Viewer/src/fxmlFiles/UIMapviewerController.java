@@ -37,13 +37,19 @@ public class UIMapviewerController implements UIMVControllerInterface {
 	@FXML
 	public GridPane grid;
 	
-	@FXML 
+	@FXML //these IDs link to the labels in the fxml file
+	//reminder is the message to tell the user what to do next
+	//cords tells the user if the status of the coordinates is either available or blocked
+	//cordsAxe shows the coordinates of axe selected by the user
+	//cordsBoat shows the coordinates of boat selected by the user
+	
 	public Label reminder,cords,cordsAxe,cordsBoat;
 	
 	@FXML
 	public ImageView playButton, resetButton, Logo, placeBoatButton, placeAxeButton;
 	
-	
+	//axe and boat will be initialized with no coordinates
+	//because user needs to input the coordinates
 	public void initialize() throws Exception {
 		hasLoaded = true;
 		functionHolder.loadMap(grid,reminder);
@@ -56,6 +62,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		this.initializeButtons();
 	}
 	
+	//linking images to the buttons to style the buttons
 	public void initializeButtons() throws Exception {
 		String playButtonPath= "/Buttons/Play.png";
 		initializeImageView(playButtonPath, this.playButton);
@@ -88,32 +95,39 @@ public class UIMapviewerController implements UIMVControllerInterface {
 
 	}
 	
+	//enables the user to hover over a set of coordinates
+	//and displays the coordinates in the Label cords
 	public void hoverCursor(MouseEvent event) {
 		cursor = event;
 		functionHolder.setHoverCords(grid, cords, cursor);	
 	}
 	
+	//placing the axe and displaying the chosen coordinates of axe
 	public void PlaceAxe() {
 		functionHolder.setAxe(grid, reminder, cordsAxe); 
 	}
 	
+	//placing the boat and displaying the chosen coordinates of boat
 	public void PlaceBoat() {
 		functionHolder.setBoat(grid, reminder, cordsBoat); 
 	}
 	
+	//resets the coordinates of axe and boat
 	public void Reset() {
 		functionHolder.resetHandler(grid, cordsAxe, cordsBoat);
 	}
 	
+	//starts the game
 	public void Play() throws IOException {
-		this.howToPlay();
-		this.closeApp();
+		this.howToPlay(); //displays the instructions to play before the game starts
+		this.closeApp(); //closes the instructions when user chooses to, so the game can start
 		MainGame.main(null);
 	}
 	
+	//displays what the game is about when the user clicks on "About"
 	public void aboutInfo() {
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("About");
+		alert.setTitle("About"); //message to be displayed
 		alert.setHeaderText("About the software & Diamond Hunter");
 		alert.setContentText("Diamond Hunter - Version 1.0\n\nDiamond Hunter"
 				+ "is a 2D role playing game which the user needs to "
@@ -127,6 +141,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		alert.setOnCloseRequest(event -> {alert.close();});
 	}
 	
+	//message to be displayed when user clicks on "Instruction"
 	public void howToPlay() {
 		Alert alert = new Alert(AlertType.INFORMATION); //incomplete
 		alert.setTitle("Instruction");
@@ -143,6 +158,7 @@ public class UIMapviewerController implements UIMVControllerInterface {
 		alert.setOnCloseRequest(event -> {alert.close();});
 	}
 	
+	//closes the app when user clicks on "Close"
 	public void closeApp() {
 		Stage stage = (Stage) grid.getScene().getWindow();
 		stage.close();
