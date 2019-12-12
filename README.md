@@ -32,7 +32,7 @@ Key: `UP, LEFT, DOWN, RIGHT` to move, `SPACE` to do action.
  
 To load Map:
  * Run the .jar files 
- * WARNING: make sure you have Java FX library downloaded before run.
+ * WARNING: make sure you have Java FX library and JRE system library [11.0.2] downloaded before run.
  
  To Set Axe/Boat:
  * Click Place Axe/Boat on the right side of the MapViwer.
